@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    
+    NSLog(@"测试");
     [self startBanBenInfo];//请求版本信息
     self.labelARR = [[NSMutableArray alloc]init];
     self.bannerARR = [[NSMutableArray alloc]init];

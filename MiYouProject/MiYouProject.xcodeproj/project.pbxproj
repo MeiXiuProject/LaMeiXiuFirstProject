@@ -2568,7 +2568,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = MeiXiuBa.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2596,7 +2596,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = MeiXiuBa.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

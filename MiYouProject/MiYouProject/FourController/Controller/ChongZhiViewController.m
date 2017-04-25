@@ -12,8 +12,6 @@
 #define ZHIFU_NOTIFICATION_RESUALT @"ZHIFU_NOTIFICATION_RESUALT"
 
 @interface ChongZhiViewController (){
-    
-    
     int _currentJINE;
     NSString * _currentOrderNUM;
 }
@@ -31,9 +29,7 @@
     
     NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.memMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:dic error:nil];
-    
-    
-    
+
     self.navigationItem.titleView = self.control;
     
     if (self.UB_or_VIP == UB_ChongZhi) {
@@ -114,26 +110,47 @@
     __weak typeof(self) weakSelf = self;
     //滚动速度
     CGFloat offSet=300.0;
+//    
+//    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
+//    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
+//        
+//        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
+//    }
+//    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
+//        
+//        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
+//    }
+    //[weakSelf.UBView.scrollView setBackgroundColor:[UIColor grayColor]];
+        //[weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+        NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
+//        [UIView animateWithDuration:59.0f animations:^{
+//            [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
+//            NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
+//        } completion:^(BOOL finished) {
+//             [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+//        }];
     
-    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
-    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
-        
-        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
-    }
-    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
-        
-        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
-    }
-    //切割每次动画滚动距离
+//    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
+//        NSLog(@"执行了动画方法");
+//        
+//        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
+//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
+//    } completion:nil];
+     [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    [UIView animateWithDuration:29.0 animations:^{
+        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
+    } completion:^(BOOL finished) {
+        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    }];
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+       // weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 90)];
+    } completion:^(BOOL finished){
+        [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 0)];
     
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
-    } completion:nil];
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
-    } completion:nil];
+    }];
     //滚动动画
-    [NSTimer scheduledTimerWithTimeInterval:59.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
     
     
     [self xw_addNotificationForName:ZHIFU_NOTIFICATION_RESUALT block:^(NSNotification * _Nonnull notification) {
@@ -145,14 +162,10 @@
 //滚动动画
 - (void)addAnimationScrollview{
     __weak typeof(self) weakSelf = self;
-    //    [UIView animateWithDuration:19.0f animations:^{
-    //        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
-    //
-    //    } completion:^(BOOL finished) {
-    //         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
-    //    }];
+
+    
     //滚动速度
-    CGFloat offSet=300.0;
+    CGFloat offSet=90;
     
     //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
     if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
@@ -163,13 +176,13 @@
         
         weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
     }
-    
     //切割每次动画滚动距离
+    NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
     
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
     } completion:nil];
-    [UIView animateWithDuration:59.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
     } completion:nil];
 }
@@ -278,7 +291,9 @@
                 weakSelf.UBView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
-                weakSelf.UBView.jieShaoLabel.text = dic[@"desc"];
+                //dic[@"desc"]
+                 NSString * removeStr = [self removeHTML:dic[@"desc"]];
+                weakSelf.UBView.jieShaoLabel.text = removeStr;
             }
             
             NSArray * arr00 = dic[@"rechargeList"];
@@ -330,7 +345,9 @@
                 weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[dic[@"total"] intValue]];
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
-                weakSelf.VIPView.jieshaoLabel.text = dic[@"desc"];
+                NSString * removeStr = [self removeHTML:dic[@"desc"]];
+               //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+                weakSelf.VIPView.jieshaoLabel.text = removeStr;
             }
             NSArray * arr00 = dic[@"buyVipList"];
             if (!zlArrayIsEmpty(arr00)) {
@@ -348,6 +365,7 @@
                 label.font = [UIFont systemFontOfSize:12.0f];
                 label.textColor = [UIColor blackColor];
                 label.text = string;
+                //label.backgroundColor = [UIColor grayColor];
                 [weakSelf.VIPView.scrollView addSubview:label];
                 [label mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.with.bottom.mas_equalTo(weakSelf.VIPView.scrollView);
@@ -903,7 +921,48 @@
     return _VIPMiaoShuARR;
     
 }
-
+// 过滤HTML的标签
+- (NSString *)removeHTML:(NSString *)html {
+    
+//    NSScanner *theScanner = [NSScanner scannerWithString:html];
+//    
+//    NSString *text = nil;
+//    
+//    while ([theScanner isAtEnd] == NO) {
+//        
+//        // 找到标签的起始位置
+//        
+//        [theScanner scanUpToString:@"<" intoString:nil] ;
+//        
+//        // 找到标签的结束位置
+//        
+//        [theScanner scanUpToString:@">" intoString:&text] ;
+//        
+//        // 替换字符
+//        
+//        //(you can filter multi-spaces out later if you wish)
+//        
+//        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@" "];
+//    }
+    /*
+     iOS中对字符串进行UTF-8编码：输出str字符串的UTF-8格式
+     [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     
+     解码：把str字符串以UTF-8规则进行解码
+     [str stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     */
+    
+    //html stringByReplacingOccurrencesOfString:<#(nonnull NSString *)#> withString:<#(nonnull NSString *)#>
+    //NSString * testStr = @"<html><body><p>充值描述</p>充值描述充值描述充值描述</body></html>";
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)html dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];html = [html stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    //NSLog(@"去掉HTML之前的字符串：%@----%@",attrStr,attrStr.string);
+    NSString * CustomString = nil;
+    CustomString = [attrStr.string stringByReplacingOccurrencesOfString:@"<p>" withString:@"·"];
+    CustomString = [CustomString stringByReplacingOccurrencesOfString:@"</p>" withString:@"\n"];
+    //NSLog(@"去掉HTML字符串：%@",CustomString);
+    return CustomString;
+    
+}
 /*
  #pragma mark - Navigation
  

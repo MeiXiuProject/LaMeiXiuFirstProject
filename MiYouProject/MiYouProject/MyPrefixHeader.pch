@@ -28,6 +28,6 @@
 #import "UIButton+ZLWebPSetImage.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
-
+#import <YYKit.h>
 
 #endif /* MyPrefixHeader_pch */

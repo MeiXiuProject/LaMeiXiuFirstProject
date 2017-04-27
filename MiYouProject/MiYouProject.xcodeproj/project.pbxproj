@@ -13,6 +13,9 @@
 		187EE4A11E8166F900825054 /* AlertViewCustomZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EE4A01E8166F900825054 /* AlertViewCustomZL.m */; };
 		18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */; };
 		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
+		73048F831EB1D51700DF950A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73048F821EB1D51700DF950A /* ImageIO.framework */; };
+		73048F851EB1D52200DF950A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73048F841EB1D52200DF950A /* AssetsLibrary.framework */; };
+		73048F871EB1D53A00DF950A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73048F861EB1D53A00DF950A /* Security.framework */; };
 		730D384C1E7697A600EE4692 /* PersonHederTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */; };
 		730D384D1E7697A600EE4692 /* PersonHederTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */; };
 		730D38511E7787EE00EE4692 /* ButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730D384F1E7787EE00EE4692 /* ButtonsTableViewCell.m */; };
@@ -304,6 +307,9 @@
 		18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionGirdVIew.m; sourceTree = "<group>"; };
 		1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA0EB7A34A969BE28FC4932 /* Pods-MiYouProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiYouProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiYouProjectUITests/Pods-MiYouProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		73048F821EB1D51700DF950A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		73048F841EB1D52200DF950A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		73048F861EB1D53A00DF950A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		730D38491E7697A600EE4692 /* PersonHederTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonHederTableViewCell.h; path = MiYouProject/FirstController/View/PersonHederTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		730D384A1E7697A600EE4692 /* PersonHederTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonHederTableViewCell.m; path = MiYouProject/FirstController/View/PersonHederTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		730D384B1E7697A600EE4692 /* PersonHederTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonHederTableViewCell.xib; path = MiYouProject/FirstController/View/PersonHederTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -745,10 +751,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73048F871EB1D53A00DF950A /* Security.framework in Frameworks */,
+				73048F851EB1D52200DF950A /* AssetsLibrary.framework in Frameworks */,
+				73048F831EB1D51700DF950A /* ImageIO.framework in Frameworks */,
+				73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */,
 				73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */,
 				73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */,
 				73485C3D1E9CAD9C00A6691A /* CFNetwork.framework in Frameworks */,
-				73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */,
 				73485C391E9CAD7B00A6691A /* CoreGraphics.framework in Frameworks */,
 				73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */,
 				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
@@ -826,6 +835,9 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73048F861EB1D53A00DF950A /* Security.framework */,
+				73048F841EB1D52200DF950A /* AssetsLibrary.framework */,
+				73048F821EB1D51700DF950A /* ImageIO.framework */,
 				73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */,
 				73485C491E9CD37D00A6691A /* BmobPaySDK.framework */,
 				73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */,
@@ -2564,7 +2576,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = zhouzhou.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2592,7 +2604,7 @@
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = miyou.com.MiYouProject;
+				PRODUCT_BUNDLE_IDENTIFIER = zhouzhou.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

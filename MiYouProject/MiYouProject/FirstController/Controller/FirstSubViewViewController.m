@@ -435,36 +435,8 @@
     //vModel.pic
     //[cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"]];
     NSLog(@"图片链接：%@",vModel.pic);
-//    NSArray * benARR = @[@"http://api4.cn360du.com:88/upload/vod/2017-04/14917942023.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419818.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419815.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419810.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419813.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/149179419811.jpg",@"http://api4.cn360du.com:88/upload/vod/2017-04/14917941977.jpg"];
-//    NSArray * zaiARR = @[@"http://img3.redocn.com/tupian/20150318/chanraodehuawenbiankuangxiangkuang_4020940.jpg",@"http://pic.58pic.com/58pic/13/59/88/32W58PICQpk_1024.jpg",@"http://pic.58pic.com/58pic/13/60/91/42P58PIChDU_1024.jpg",@"http://www.zhlzw.com/UploadFiles/Article_UploadFiles/201204/20120412123927207.jpg",@"http://d.5857.com/xgs_150428/desk_005.jpg",@"http://d.5857.com/weimei_140707/004.jpg",@"http://d.5857.com/xgmn_150416/desk_007.jpg"];
-//    int arInt = arc4random()%7;
-   
-//    [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        NSLog(@"cell图片夹杂成功！arInt=%d",arInt);
-//        //[cell.minImageView setImage:image];
-//        //[cell layoutSubviews];
-//    }];
-    
     UIImageView * imageView = [[UIImageView alloc]init];
     [_cellMinImageViewARR addObject:cell.minImageView];
-    //[cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached];
-//    [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        
-//        [[SDImageCache sharedImageCache] storeImage:image forKey:vModel.pic toDisk:YES completion:^{
-//            //NSLog(@"保存到磁盘中。。。。。。");
-//        }];
-//        //NSLog(@"进来了");
-//        //[cell.minImageView setImage:image];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            
-//            [cell.minImageView setImage:image];
-//            [cell layoutSubviews];
-//            
-//            
-//        });
-//        
-//    }];
-    
     //检测缓存中是否存在图片
     UIImage *myCachedImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:vModel.pic];
     /*
@@ -478,6 +450,7 @@
         
     }];
     */
+    /*
     if (myCachedImage) {
         NSLog(@"缓存中有图片");
         [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default2"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
@@ -511,34 +484,22 @@
         }];
     
     }
+    */
+    
+    //YYKit UIImageView扩展  设置 Image  测试  
+    [cell.minImageView setImageWithURL:[NSURL URLWithString:vModel.pic] placeholder:PLACEHOLDER_IMAGE options:YYWebImageOptionRefreshImageCache completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        NSLog(@"图片加载成功？");
+    }];
     
 
-
     
-    
-//    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-//    manager.imageDownloader downloadImageWithURL:<#(nullable NSURL *)#> options:<#(SDWebImageDownloaderOptions)#> progress:<#^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL)progressBlock#> completed:<#^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished)completedBlock#>
-    
-//    [imageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-//        NSLog(@"下载进度");
-//    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        NSLog(@"进来了");
-//        [cell.minImageView setImage:image];
-//    }];
-
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [cell.minImageView sd_setImageWithURL:[NSURL URLWithString:vModel.pic] placeholderImage:[UIImage imageNamed:@"icon_default"]];
-//    });
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // switch to another thread and perform your expensive operation
        
         dispatch_async(dispatch_get_main_queue(), ^{
             // switch back to the main thread to update your UI
-            
         });
     });
-    
-    
     
     return cell;
 }

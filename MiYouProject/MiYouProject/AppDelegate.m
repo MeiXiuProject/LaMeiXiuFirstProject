@@ -21,15 +21,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //[Bmob registerWithAppKey:@"d4f6c4b18b7e35a7255d724a0ed34d47"];
-    UMConfigInstance.appKey = YOUMENG_APP_ID_ZL;
-    UMConfigInstance.channelId = @"Custom Channel";
+    //UMConfigInstance.appKey = YOUMENG_APP_ID_ZL;
+    //UMConfigInstance.channelId = @"Custom Channel";
     //UMConfigInstance.eSType = E_UM_GAME; //仅适用于游戏场景，应用统计不用设置
-    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    [MobClick setAppVersion:version];
+    //[MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    //NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    //[MobClick setAppVersion:version];
     
     //bugly异常统计
-    [Bugly startWithAppId:@"4126a8935b"];
+    [Bugly startWithAppId:BUGLY_APP_ID_ZL];
+    
+    //AVOS集成
+    // 使用美国站点需要增加以下代码：
+    // [AVOSCloud setServiceRegion:AVServiceRegionUS];
+    [AVOSCloud setApplicationId:@"2kKbnco8wb4kIFLljBHikqKH-gzGzoHsz" clientKey:@"o84My6eGdoSjHO7XJtRuh6f0"];
+    //统计
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    
     ///开启网络状况的监听
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
@@ -84,6 +94,8 @@
         
     }
     
+    // 放在 SDK 初始化语句 [AVOSCloud setApplicationId:] 后面，只需要调用一次即可
+    [AVOSCloud setAllLogsEnabled:YES];
     
     return YES;
 }

@@ -77,12 +77,14 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "KYVedioPlayer/KYVedioPlayerLib/KYVedioPlayer.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "ZFPlayer/ZFPlayer/ZFPlayer.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "KYVedioPlayer/KYVedioPlayerLib/KYVedioPlayer.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"

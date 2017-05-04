@@ -71,6 +71,8 @@
 		732DFC891E94EF1E00D024F8 /* KYVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC881E94EF1E00D024F8 /* KYVideo.m */; };
 		732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */; };
 		732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */; };
+		7339CB281EBB0D2F00E5E600 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB271EBB0D2F00E5E600 /* libicucore.tbd */; };
+		7339CB2A1EBB0D5A00E5E600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -402,6 +404,8 @@
 		732DFC8A1E977CC100D024F8 /* SanVIPPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SanVIPPlayViewController.h; sourceTree = "<group>"; };
 		732DFC8B1E977CC100D024F8 /* SanVIPPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SanVIPPlayViewController.m; sourceTree = "<group>"; };
 		732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SanVIPPlayViewController.xib; sourceTree = "<group>"; };
+		7339CB271EBB0D2F00E5E600 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -751,6 +755,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7339CB2A1EBB0D5A00E5E600 /* CoreLocation.framework in Frameworks */,
+				7339CB281EBB0D2F00E5E600 /* libicucore.tbd in Frameworks */,
 				73048F871EB1D53A00DF950A /* Security.framework in Frameworks */,
 				73048F851EB1D52200DF950A /* AssetsLibrary.framework in Frameworks */,
 				73048F831EB1D51700DF950A /* ImageIO.framework in Frameworks */,
@@ -835,6 +841,8 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */,
+				7339CB271EBB0D2F00E5E600 /* libicucore.tbd */,
 				73048F861EB1D53A00DF950A /* Security.framework */,
 				73048F841EB1D52200DF950A /* AssetsLibrary.framework */,
 				73048F821EB1D51700DF950A /* ImageIO.framework */,

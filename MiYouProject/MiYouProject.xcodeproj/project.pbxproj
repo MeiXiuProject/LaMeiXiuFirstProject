@@ -73,6 +73,8 @@
 		732DFC8E1E977CC100D024F8 /* SanVIPPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */; };
 		7339CB281EBB0D2F00E5E600 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB271EBB0D2F00E5E600 /* libicucore.tbd */; };
 		7339CB2A1EBB0D5A00E5E600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */; };
+		7339CB5A1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB581EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m */; };
+		7339CB5B1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB591EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -406,6 +408,9 @@
 		732DFC8C1E977CC100D024F8 /* SanVIPPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SanVIPPlayViewController.xib; sourceTree = "<group>"; };
 		7339CB271EBB0D2F00E5E600 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7339CB571EBC63D700E5E600 /* MMFirstViewcontrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFirstViewcontrollerViewController.h; sourceTree = "<group>"; };
+		7339CB581EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFirstViewcontrollerViewController.m; sourceTree = "<group>"; };
+		7339CB591EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMFirstViewcontrollerViewController.xib; sourceTree = "<group>"; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -918,6 +923,7 @@
 				73EB3EB31E6FD7DB00CA8B5D /* Myframework */,
 				73EB3EC61E6FD7DB00CA8B5D /* SecondController */,
 				73EB3ECC1E6FD7DB00CA8B5D /* ThirdController */,
+				7339CB531EBC63A100E5E600 /* MoMoViewController */,
 				732BC86B1E6FD17400B8B1BD /* AppDelegate.h */,
 				732BC86C1E6FD17400B8B1BD /* AppDelegate.m */,
 				732BC86E1E6FD17400B8B1BD /* ViewController.h */,
@@ -1038,6 +1044,40 @@
 				732DFC6A1E94BCD100D024F8 /* FastForwardView.xib */,
 				732DFC6B1E94BCD100D024F8 /* WMLightView.h */,
 				732DFC6C1E94BCD100D024F8 /* WMLightView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7339CB531EBC63A100E5E600 /* MoMoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB541EBC63B800E5E600 /* Controller */,
+				7339CB551EBC63B800E5E600 /* Model */,
+				7339CB561EBC63B800E5E600 /* View */,
+			);
+			path = MoMoViewController;
+			sourceTree = "<group>";
+		};
+		7339CB541EBC63B800E5E600 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB571EBC63D700E5E600 /* MMFirstViewcontrollerViewController.h */,
+				7339CB581EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m */,
+				7339CB591EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7339CB551EBC63B800E5E600 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7339CB561EBC63B800E5E600 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2068,6 +2108,7 @@
 				73EB3FBC1E6FDEE400CA8B5D /* app_bg.jpg in Resources */,
 				73EB3FA51E6FDEE400CA8B5D /* Loading001.png in Resources */,
 				73EB3FAD1E6FDEE400CA8B5D /* Loading0017.png in Resources */,
+				7339CB5B1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib in Resources */,
 				730D38521E7787EE00EE4692 /* ButtonsTableViewCell.xib in Resources */,
 				73EB3FA91E6FDEE400CA8B5D /* Loading0013.png in Resources */,
 				732BC8731E6FD17400B8B1BD /* Main.storyboard in Resources */,
@@ -2260,6 +2301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7339CB5A1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m in Sources */,
 				73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */,
 				73485C501E9CD87600A6691A /* AppDelegate.h in Sources */,
 				73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */,

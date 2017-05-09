@@ -42,3 +42,17 @@
 
 
 @end
+@implementation MoMoMemberClass
+
+@dynamic vip;
+@dynamic id;
+@dynamic points;
+
++ (NSString *)parseClassName{
+    return @"_User";
+
+}
+
+@end
+
+

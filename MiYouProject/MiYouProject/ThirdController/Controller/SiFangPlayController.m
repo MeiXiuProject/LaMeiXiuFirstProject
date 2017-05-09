@@ -30,7 +30,7 @@
         NSString * codeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
         self.zaiXianUrl = [NSURL URLWithString:codeString];
         self.zaiXianName = self.currentSiFangMTLModel.name;
-        NSLog(@"当前视频的名称为:=%@=",self.zaiXianName);
+        NSLog(@"当前视频的名称为:=%@=\n=%@=",self.zaiXianName,self.zaiXianUrl);
         [self settingPlayer];
         //[self startWatchPlayWithID:self.id withMID:self.mid];
     }

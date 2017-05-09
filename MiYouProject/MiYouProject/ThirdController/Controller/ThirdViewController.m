@@ -333,7 +333,7 @@ static int _is_first;
      }];
      */
     
-    if (myCachedImage) {
+    if (myCachedImage02) {
         //NSLog(@"缓存中有图片");
         [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
@@ -405,11 +405,11 @@ static int _is_first;
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.currentMemberMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memDic error:nil];
     
-    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
-    vc.mid = self.currentMemberMTLModel.id;
-    vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
-    vc.currentSiFangMTLModel = sender.sifangModel;
-    [self.navigationController pushViewController:vc animated:NO];
+//    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+//    vc.mid = self.currentMemberMTLModel.id;
+//    vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+//    vc.currentSiFangMTLModel = sender.sifangModel;
+//    [self.navigationController pushViewController:vc animated:NO];
     
 //    if ([sender.sifangModel.isBuy boolValue] == YES) {
 //        SiFangPlayController * vc = [[SiFangPlayController alloc]init];
@@ -419,38 +419,36 @@ static int _is_first;
 //        [self.navigationController pushViewController:vc animated:NO];
 //
 //    }else{
-//        int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_POINTS_NUM ] intValue];
-//        if (UBpoitnts < [sender.sifangModel.price intValue]) {
-//            __weak typeof(self) weakSelf = self;
-//            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-//            alertZL.titleName = @"U币余额不足";
-//            alertZL.cancelBtnTitle = @"取消";
-//            alertZL.okBtnTitle = @"充值";
-//            [alertZL cancelBlockAction:^(BOOL success) {
-//                [alertZL hideCustomeAlertView];
-//            }];
-//            [alertZL okButtonBlockAction:^(BOOL success) {
-//                NSLog(@"点击了去支付按钮");
-//                [alertZL hideCustomeAlertView];
-//                ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
-//                vc.UB_or_VIP = UB_ChongZhi;
-//                [weakSelf.navigationController pushViewController:vc animated:YES];
-//            }];
-//            [alertZL showCustomAlertView];
-//        }
-//        else{
-//            
-//            int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
-//            NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
-//            [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MEMBER_POINTS_NUM];
-//            SiFangPlayController * vc = [[SiFangPlayController alloc]init];
-//            vc.mid = self.currentMemberMTLModel.id;
-//            vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
-//            vc.currentSiFangMTLModel = sender.sifangModel;
-//            [self.navigationController pushViewController:vc animated:NO];
-//        }
-//    }
-//    
+        int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MOMO_MEMBER_POINTS_NUM ] intValue];
+        if (UBpoitnts < [sender.sifangModel.price intValue]) {
+            __weak typeof(self) weakSelf = self;
+            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+            alertZL.titleName = @"U币余额不足";
+            alertZL.cancelBtnTitle = @"取消";
+            alertZL.okBtnTitle = @"充值";
+            [alertZL cancelBlockAction:^(BOOL success) {
+                [alertZL hideCustomeAlertView];
+            }];
+            [alertZL okButtonBlockAction:^(BOOL success) {
+                NSLog(@"点击了去支付按钮");
+                [alertZL hideCustomeAlertView];
+                ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+                vc.UB_or_VIP = UB_ChongZhi;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            }];
+            [alertZL showCustomAlertView];
+        }
+        else{
+            
+            int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
+            NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
+            [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MOMO_MEMBER_POINTS_NUM];
+            SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+            vc.mid = self.currentMemberMTLModel.id;
+            vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+            vc.currentSiFangMTLModel = sender.sifangModel;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
 }
 //执行 评论按钮方法
 - (void)pingLunButtonAction:(UIButton *)sender{

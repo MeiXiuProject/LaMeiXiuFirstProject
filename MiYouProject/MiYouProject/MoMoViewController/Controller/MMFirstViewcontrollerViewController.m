@@ -24,12 +24,62 @@
         item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         //item.title
     }
-//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], NSForegroundColorAttributeName, nil]];
-
-//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor lightGrayColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
-//    [[UITabBarItem appearance] setTitleTextAttributes:                                                         [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:59.0/255.0 green:207.0/255.0 blue:202.0/255.0 alpha:1],UITextAttributeTextColor, nil]forState:UIControlStateSelected];
+    // 设置 tabbarItem 选中状态下的文字颜色(不被系统默认渲染,显示文字自定义颜色)
+    NSDictionary *dictHome = [NSDictionary dictionaryWithObject:[UIColor orangeColor] forKey:NSForegroundColorAttributeName];
+    [self.tabBarItem setTitleTextAttributes:dictHome forState:UIControlStateSelected];
+    
+    //全局队列  并行 异步函数
+    [GlobalQueue executeAsyncTask:^{
+        [self loadLeanCloud];
+    }];
+    //主队列
+    [MainQueue executeAsyncTask:^{
+        
+    }];
+    //
+    
 }
 
+- (void)loadLeanCloud{
+    [self FirstTestLeanCloudFunction];
+    [self SecTestLeanCloudFunction];
+    [self ThirdTestLeanCloudFunction];
+    [self FourTestLeanCloudFunction];
+    [self FiveTestLeanCloudFunction];
+}
+
+- (void)FirstTestLeanCloudFunction{
+    //注册登录
+    //[FirstViewModel signUpAndLoginFunction];
+    
+    [MoMoZhuBoViewModel loadZhuBoQueryList];
+}
+
+
+
+- (void)SecTestLeanCloudFunction{
+    
+    
+    
+}
+
+- (void)ThirdTestLeanCloudFunction{
+    
+    
+    
+}
+
+- (void)FourTestLeanCloudFunction{
+    
+    
+    
+}
+
+- (void)FiveTestLeanCloudFunction{
+    
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

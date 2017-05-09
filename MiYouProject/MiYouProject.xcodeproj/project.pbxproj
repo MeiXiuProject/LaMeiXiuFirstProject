@@ -75,6 +75,26 @@
 		7339CB2A1EBB0D5A00E5E600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */; };
 		7339CB5A1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB581EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m */; };
 		7339CB5B1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB591EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib */; };
+		7339CB611EBFF9C400E5E600 /* ZLTBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB601EBFF9C400E5E600 /* ZLTBViewController.m */; };
+		7339CB8B1EC003FA00E5E600 /* NSArray+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB671EC003FA00E5E600 /* NSArray+WT.m */; };
+		7339CB8C1EC003FA00E5E600 /* NSDate+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB691EC003FA00E5E600 /* NSDate+WT.m */; };
+		7339CB8D1EC003FA00E5E600 /* NSString+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB6B1EC003FA00E5E600 /* NSString+WT.m */; };
+		7339CB8E1EC003FA00E5E600 /* NSTimer+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB6D1EC003FA00E5E600 /* NSTimer+WT.m */; };
+		7339CB8F1EC003FA00E5E600 /* CALayer+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB701EC003FA00E5E600 /* CALayer+WT.m */; };
+		7339CB901EC003FA00E5E600 /* Checkmark_failure_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB711EC003FA00E5E600 /* Checkmark_failure_white@2x.png */; };
+		7339CB911EC003FA00E5E600 /* Checkmark_success_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7339CB721EC003FA00E5E600 /* Checkmark_success_white@2x.png */; };
+		7339CB921EC003FA00E5E600 /* UIBarButtonItem+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB741EC003FA00E5E600 /* UIBarButtonItem+WT.m */; };
+		7339CB931EC003FA00E5E600 /* UIButton+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB761EC003FA00E5E600 /* UIButton+WT.m */; };
+		7339CB941EC003FA00E5E600 /* UIImage+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB781EC003FA00E5E600 /* UIImage+WT.m */; };
+		7339CB951EC003FA00E5E600 /* UILabel+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB7A1EC003FA00E5E600 /* UILabel+WT.m */; };
+		7339CB961EC003FA00E5E600 /* UITextView+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB7C1EC003FA00E5E600 /* UITextView+WT.m */; };
+		7339CB971EC003FA00E5E600 /* UIView+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB7E1EC003FA00E5E600 /* UIView+WT.m */; };
+		7339CB981EC003FA00E5E600 /* UIViewController+WT.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB801EC003FA00E5E600 /* UIViewController+WT.m */; };
+		7339CB991EC003FA00E5E600 /* WTUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB851EC003FA00E5E600 /* WTUtility.m */; };
+		7339CB9A1EC003FA00E5E600 /* WTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB881EC003FA00E5E600 /* WTTextField.m */; };
+		7339CB9B1EC003FA00E5E600 /* WTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB8A1EC003FA00E5E600 /* WTTextView.m */; };
+		7339CBA01EC017DD00E5E600 /* NSUserdefalutZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB9F1EC017DD00E5E600 /* NSUserdefalutZL.m */; };
+		7339CBA31EC03BB700E5E600 /* FirstViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBA21EC03BB700E5E600 /* FirstViewModel.m */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -411,6 +431,47 @@
 		7339CB571EBC63D700E5E600 /* MMFirstViewcontrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFirstViewcontrollerViewController.h; sourceTree = "<group>"; };
 		7339CB581EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFirstViewcontrollerViewController.m; sourceTree = "<group>"; };
 		7339CB591EBC63D700E5E600 /* MMFirstViewcontrollerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMFirstViewcontrollerViewController.xib; sourceTree = "<group>"; };
+		7339CB5F1EBFF9C400E5E600 /* ZLTBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLTBViewController.h; sourceTree = "<group>"; };
+		7339CB601EBFF9C400E5E600 /* ZLTBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLTBViewController.m; sourceTree = "<group>"; };
+		7339CB661EC003FA00E5E600 /* NSArray+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WT.h"; sourceTree = "<group>"; };
+		7339CB671EC003FA00E5E600 /* NSArray+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WT.m"; sourceTree = "<group>"; };
+		7339CB681EC003FA00E5E600 /* NSDate+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WT.h"; sourceTree = "<group>"; };
+		7339CB691EC003FA00E5E600 /* NSDate+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WT.m"; sourceTree = "<group>"; };
+		7339CB6A1EC003FA00E5E600 /* NSString+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WT.h"; sourceTree = "<group>"; };
+		7339CB6B1EC003FA00E5E600 /* NSString+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WT.m"; sourceTree = "<group>"; };
+		7339CB6C1EC003FA00E5E600 /* NSTimer+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+WT.h"; sourceTree = "<group>"; };
+		7339CB6D1EC003FA00E5E600 /* NSTimer+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+WT.m"; sourceTree = "<group>"; };
+		7339CB6F1EC003FA00E5E600 /* CALayer+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+WT.h"; sourceTree = "<group>"; };
+		7339CB701EC003FA00E5E600 /* CALayer+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WT.m"; sourceTree = "<group>"; };
+		7339CB711EC003FA00E5E600 /* Checkmark_failure_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark_failure_white@2x.png"; sourceTree = "<group>"; };
+		7339CB721EC003FA00E5E600 /* Checkmark_success_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark_success_white@2x.png"; sourceTree = "<group>"; };
+		7339CB731EC003FA00E5E600 /* UIBarButtonItem+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WT.h"; sourceTree = "<group>"; };
+		7339CB741EC003FA00E5E600 /* UIBarButtonItem+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WT.m"; sourceTree = "<group>"; };
+		7339CB751EC003FA00E5E600 /* UIButton+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WT.h"; sourceTree = "<group>"; };
+		7339CB761EC003FA00E5E600 /* UIButton+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WT.m"; sourceTree = "<group>"; };
+		7339CB771EC003FA00E5E600 /* UIImage+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WT.h"; sourceTree = "<group>"; };
+		7339CB781EC003FA00E5E600 /* UIImage+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WT.m"; sourceTree = "<group>"; };
+		7339CB791EC003FA00E5E600 /* UILabel+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WT.h"; sourceTree = "<group>"; };
+		7339CB7A1EC003FA00E5E600 /* UILabel+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WT.m"; sourceTree = "<group>"; };
+		7339CB7B1EC003FA00E5E600 /* UITextView+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+WT.h"; sourceTree = "<group>"; };
+		7339CB7C1EC003FA00E5E600 /* UITextView+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+WT.m"; sourceTree = "<group>"; };
+		7339CB7D1EC003FA00E5E600 /* UIView+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WT.h"; sourceTree = "<group>"; };
+		7339CB7E1EC003FA00E5E600 /* UIView+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WT.m"; sourceTree = "<group>"; };
+		7339CB7F1EC003FA00E5E600 /* UIViewController+WT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WT.h"; sourceTree = "<group>"; };
+		7339CB801EC003FA00E5E600 /* UIViewController+WT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WT.m"; sourceTree = "<group>"; };
+		7339CB821EC003FA00E5E600 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		7339CB831EC003FA00E5E600 /* WTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConst.h; sourceTree = "<group>"; };
+		7339CB841EC003FA00E5E600 /* WTUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUtility.h; sourceTree = "<group>"; };
+		7339CB851EC003FA00E5E600 /* WTUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUtility.m; sourceTree = "<group>"; };
+		7339CB871EC003FA00E5E600 /* WTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTextField.h; sourceTree = "<group>"; };
+		7339CB881EC003FA00E5E600 /* WTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextField.m; sourceTree = "<group>"; };
+		7339CB891EC003FA00E5E600 /* WTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTextView.h; sourceTree = "<group>"; };
+		7339CB8A1EC003FA00E5E600 /* WTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTextView.m; sourceTree = "<group>"; };
+		7339CB9C1EC0156100E5E600 /* MoMoURLZLHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoMoURLZLHeader.h; sourceTree = "<group>"; };
+		7339CB9E1EC017DD00E5E600 /* NSUserdefalutZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSUserdefalutZL.h; sourceTree = "<group>"; };
+		7339CB9F1EC017DD00E5E600 /* NSUserdefalutZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUserdefalutZL.m; sourceTree = "<group>"; };
+		7339CBA11EC03BB700E5E600 /* FirstViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewModel.h; sourceTree = "<group>"; };
+		7339CBA21EC03BB700E5E600 /* FirstViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewModel.m; sourceTree = "<group>"; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -928,6 +989,8 @@
 				732BC86C1E6FD17400B8B1BD /* AppDelegate.m */,
 				732BC86E1E6FD17400B8B1BD /* ViewController.h */,
 				732BC86F1E6FD17400B8B1BD /* ViewController.m */,
+				7339CB5F1EBFF9C400E5E600 /* ZLTBViewController.h */,
+				7339CB601EBFF9C400E5E600 /* ZLTBViewController.m */,
 				732BC8711E6FD17400B8B1BD /* Main.storyboard */,
 				732BC8771E6FD17400B8B1BD /* Assets.xcassets */,
 				732BC8791E6FD17400B8B1BD /* LaunchScreen.storyboard */,
@@ -1071,6 +1134,8 @@
 		7339CB551EBC63B800E5E600 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7339CBA11EC03BB700E5E600 /* FirstViewModel.h */,
+				7339CBA21EC03BB700E5E600 /* FirstViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1080,6 +1145,104 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7339CB621EC003FA00E5E600 /* YouHua */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB631EC003FA00E5E600 /* WTSDK */,
+			);
+			path = YouHua;
+			sourceTree = "<group>";
+		};
+		7339CB631EC003FA00E5E600 /* WTSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB641EC003FA00E5E600 /* Category */,
+				7339CB811EC003FA00E5E600 /* Tool */,
+				7339CB861EC003FA00E5E600 /* View */,
+			);
+			path = WTSDK;
+			sourceTree = "<group>";
+		};
+		7339CB641EC003FA00E5E600 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB651EC003FA00E5E600 /* NS */,
+				7339CB6E1EC003FA00E5E600 /* UI */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7339CB651EC003FA00E5E600 /* NS */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB661EC003FA00E5E600 /* NSArray+WT.h */,
+				7339CB671EC003FA00E5E600 /* NSArray+WT.m */,
+				7339CB681EC003FA00E5E600 /* NSDate+WT.h */,
+				7339CB691EC003FA00E5E600 /* NSDate+WT.m */,
+				7339CB6A1EC003FA00E5E600 /* NSString+WT.h */,
+				7339CB6B1EC003FA00E5E600 /* NSString+WT.m */,
+				7339CB6C1EC003FA00E5E600 /* NSTimer+WT.h */,
+				7339CB6D1EC003FA00E5E600 /* NSTimer+WT.m */,
+			);
+			path = NS;
+			sourceTree = "<group>";
+		};
+		7339CB6E1EC003FA00E5E600 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB6F1EC003FA00E5E600 /* CALayer+WT.h */,
+				7339CB701EC003FA00E5E600 /* CALayer+WT.m */,
+				7339CB711EC003FA00E5E600 /* Checkmark_failure_white@2x.png */,
+				7339CB721EC003FA00E5E600 /* Checkmark_success_white@2x.png */,
+				7339CB731EC003FA00E5E600 /* UIBarButtonItem+WT.h */,
+				7339CB741EC003FA00E5E600 /* UIBarButtonItem+WT.m */,
+				7339CB751EC003FA00E5E600 /* UIButton+WT.h */,
+				7339CB761EC003FA00E5E600 /* UIButton+WT.m */,
+				7339CB771EC003FA00E5E600 /* UIImage+WT.h */,
+				7339CB781EC003FA00E5E600 /* UIImage+WT.m */,
+				7339CB791EC003FA00E5E600 /* UILabel+WT.h */,
+				7339CB7A1EC003FA00E5E600 /* UILabel+WT.m */,
+				7339CB7B1EC003FA00E5E600 /* UITextView+WT.h */,
+				7339CB7C1EC003FA00E5E600 /* UITextView+WT.m */,
+				7339CB7D1EC003FA00E5E600 /* UIView+WT.h */,
+				7339CB7E1EC003FA00E5E600 /* UIView+WT.m */,
+				7339CB7F1EC003FA00E5E600 /* UIViewController+WT.h */,
+				7339CB801EC003FA00E5E600 /* UIViewController+WT.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7339CB811EC003FA00E5E600 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB821EC003FA00E5E600 /* Singleton.h */,
+				7339CB831EC003FA00E5E600 /* WTConst.h */,
+				7339CB841EC003FA00E5E600 /* WTUtility.h */,
+				7339CB851EC003FA00E5E600 /* WTUtility.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		7339CB861EC003FA00E5E600 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB871EC003FA00E5E600 /* WTTextField.h */,
+				7339CB881EC003FA00E5E600 /* WTTextField.m */,
+				7339CB891EC003FA00E5E600 /* WTTextView.h */,
+				7339CB8A1EC003FA00E5E600 /* WTTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7339CB9D1EC017BB00E5E600 /* NSUserDefaultZL */ = {
+			isa = PBXGroup;
+			children = (
+				7339CB9E1EC017DD00E5E600 /* NSUserdefalutZL.h */,
+				7339CB9F1EC017DD00E5E600 /* NSUserdefalutZL.m */,
+			);
+			path = NSUserDefaultZL;
 			sourceTree = "<group>";
 		};
 		73485C271E9CAD0300A6691A /* ZhiFuFrame */ = {
@@ -1253,6 +1416,7 @@
 		73EB3E9D1E6FD7DB00CA8B5D /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				7339CB9D1EC017BB00E5E600 /* NSUserDefaultZL */,
 				732DFC531E94BBF200D024F8 /* ZLWMPlayerVC */,
 				73E7DA731E7F778900371E33 /* UIUnitCore */,
 				73EB3EE21E6FDEE400CA8B5D /* Common */,
@@ -1260,6 +1424,7 @@
 				73EB3E9F1E6FD7DB00CA8B5D /* ZLBaseViewController.m */,
 				73EB3EA01E6FD7DB00CA8B5D /* ZLMTLModel */,
 				73C347141E82445200BBBDBE /* URLZLHeader.h */,
+				7339CB9C1EC0156100E5E600 /* MoMoURLZLHeader.h */,
 			);
 			path = CommonFiles;
 			sourceTree = "<group>";
@@ -1437,6 +1602,7 @@
 		73EB3EB31E6FD7DB00CA8B5D /* Myframework */ = {
 			isa = PBXGroup;
 			children = (
+				7339CB621EC003FA00E5E600 /* YouHua */,
 				73485C271E9CAD0300A6691A /* ZhiFuFrame */,
 				73C347241E84E96600BBBDBE /* AutoFitLabel */,
 				73E7DA611E7B787E00371E33 /* ZLNSFileManager */,
@@ -2077,6 +2243,7 @@
 				73EB3FA61E6FDEE400CA8B5D /* Loading0010.png in Resources */,
 				73EB3FAE1E6FDEE400CA8B5D /* Loading0018.png in Resources */,
 				73EB3FAF1E6FDEE400CA8B5D /* Loading0019.png in Resources */,
+				7339CB911EC003FA00E5E600 /* Checkmark_success_white@2x.png in Resources */,
 				73EB3F9B1E6FDEE400CA8B5D /* 0003.png in Resources */,
 				73EB3FA71E6FDEE400CA8B5D /* Loading0011.png in Resources */,
 				73EB3FB01E6FDEE400CA8B5D /* Loading002.png in Resources */,
@@ -2087,6 +2254,7 @@
 				73EB3FCA1E6FDEE400CA8B5D /* background.png in Resources */,
 				73EB3F9C1E6FDEE400CA8B5D /* 0004.png in Resources */,
 				732BC87B1E6FD17400B8B1BD /* LaunchScreen.storyboard in Resources */,
+				7339CB901EC003FA00E5E600 /* Checkmark_failure_white@2x.png in Resources */,
 				73EB3FB31E6FDEE400CA8B5D /* Loading004.png in Resources */,
 				73EB430E1E713D5A00CA8B5D /* SearchViewController.xib in Resources */,
 				73E7DA6C1E7BE08D00371E33 /* PlayerZLViewController.xib in Resources */,
@@ -2304,6 +2472,7 @@
 				7339CB5A1EBC63D700E5E600 /* MMFirstViewcontrollerViewController.m in Sources */,
 				73485C511E9CD87E00A6691A /* ChongZhiViewController.h in Sources */,
 				73485C501E9CD87600A6691A /* AppDelegate.h in Sources */,
+				7339CB8E1EC003FA00E5E600 /* NSTimer+WT.m in Sources */,
 				73E7DA6F1E7F740600371E33 /* DownloadModel.m in Sources */,
 				73EB3EDA1E6FD7DB00CA8B5D /* UploadParam.m in Sources */,
 				73E7DA8D1E7FBEC100371E33 /* DianYingSubCollectionViewCell.m in Sources */,
@@ -2323,6 +2492,7 @@
 				73EB3FC01E6FDEE400CA8B5D /* NewFeatureModel.m in Sources */,
 				73E7DA921E80BF7C00371E33 /* PlayVideoTableViewCell.m in Sources */,
 				73C347331E84E96600BBBDBE /* MSSAutoresizeLabelFlowLayout.m in Sources */,
+				7339CB8C1EC003FA00E5E600 /* NSDate+WT.m in Sources */,
 				73C3471D1E8249E200BBBDBE /* MemberMTLModel.m in Sources */,
 				73EB3FC61E6FDEE400CA8B5D /* GCDGroup.m in Sources */,
 				73A3B6311E8DE47800407957 /* SiFangPlayButton.m in Sources */,
@@ -2331,12 +2501,15 @@
 				737B24BE1E88E9A9001421FF /* PlayVideoMTLModel.m in Sources */,
 				73EB430D1E713D5A00CA8B5D /* SearchViewController.m in Sources */,
 				73EB3FCE1E6FDEE400CA8B5D /* UIView+MJAlertView.m in Sources */,
+				7339CB921EC003FA00E5E600 /* UIBarButtonItem+WT.m in Sources */,
 				73EB3F931E6FDEE400CA8B5D /* KZPhotoManager.m in Sources */,
 				732DFC761E94BCD100D024F8 /* WMDragView.m in Sources */,
+				7339CB8F1EC003FA00E5E600 /* CALayer+WT.m in Sources */,
 				732DFC771E94BCD100D024F8 /* FastForwardView.m in Sources */,
 				73EB3FBB1E6FDEE400CA8B5D /* YYAnimationIndicator.m in Sources */,
 				73E7DA6B1E7BE08D00371E33 /* PlayerZLViewController.m in Sources */,
 				732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */,
+				7339CB9A1EC003FA00E5E600 /* WTTextField.m in Sources */,
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
@@ -2353,6 +2526,7 @@
 				73EB3FDF1E70000F00CA8B5D /* ViewPagerController.m in Sources */,
 				73A3B6161E8A86A600407957 /* YiJianViewController.m in Sources */,
 				73EB3FBD1E6FDEE400CA8B5D /* UIApplication+Extend.m in Sources */,
+				7339CB981EC003FA00E5E600 /* UIViewController+WT.m in Sources */,
 				73A3B6471E8E455C00407957 /* VIPViewCollectionViewCell.m in Sources */,
 				73EB3F891E6FDEE400CA8B5D /* UIColor+HeinQi.m in Sources */,
 				73C347301E84E96600BBBDBE /* MSSAutoresizeLabelFlow.m in Sources */,
@@ -2361,6 +2535,7 @@
 				73A3B6231E8CA9DD00407957 /* SiFangCollectionViewCell.m in Sources */,
 				73EB3FD21E6FDEE400CA8B5D /* PulldownMenu.m in Sources */,
 				73A3B6111E8A857200407957 /* AboutUSViewController.m in Sources */,
+				7339CB991EC003FA00E5E600 /* WTUtility.m in Sources */,
 				73E7DA521E7A78A200371E33 /* HuanCunCenterViewController.m in Sources */,
 				732DFC701E94BCD100D024F8 /* BaseViewController.m in Sources */,
 				73C347311E84E96600BBBDBE /* MSSAutoresizeLabelFlowCell.m in Sources */,
@@ -2385,23 +2560,27 @@
 				73EB3FD31E6FDEE400CA8B5D /* ZhengZePanDuan.m in Sources */,
 				73EB3F981E6FDEE400CA8B5D /* UIImageView+ZLWebPsetImage.m in Sources */,
 				73EB3F901E6FDEE400CA8B5D /* HFSApplicationContext.m in Sources */,
+				7339CB931EC003FA00E5E600 /* UIButton+WT.m in Sources */,
 				73EB3FC91E6FDEE400CA8B5D /* GCDTimer.m in Sources */,
 				73EB43161E7241A400CA8B5D /* DianShiQiangCollectionCell.m in Sources */,
 				73A3B60C1E8A808B00407957 /* MianZeViewController.m in Sources */,
 				73C347321E84E96600BBBDBE /* MSSAutoresizeLabelFlowConfig.m in Sources */,
 				732DFC741E94BCD100D024F8 /* VideoModel.m in Sources */,
 				73EB3FC21E6FDEE400CA8B5D /* NewFeatureScrollView.m in Sources */,
+				7339CB941EC003FA00E5E600 /* UIImage+WT.m in Sources */,
 				73EB3FDB1E6FE2CE00CA8B5D /* NSString+URLZL.m in Sources */,
 				73EB3EDE1E6FD7DB00CA8B5D /* ThirdViewController.m in Sources */,
 				73EB3FC41E6FDEE400CA8B5D /* CustomeColorObject.m in Sources */,
 				73E7DA831E7FB75800371E33 /* DianYingSubViewController.m in Sources */,
 				730D386A1E77E1FD00EE4692 /* PersonInfoViewController.m in Sources */,
 				73EB3FC11E6FDEE400CA8B5D /* NewFeatureImageV.m in Sources */,
+				7339CBA01EC017DD00E5E600 /* NSUserdefalutZL.m in Sources */,
 				73EB3FC71E6FDEE400CA8B5D /* GCDQueue.m in Sources */,
 				730D38561E7795FA00EE4692 /* ThirdTeQuanTableViewCell.m in Sources */,
 				73C347231E84C34500BBBDBE /* ReMenView.m in Sources */,
 				73EB3FBE1E6FDEE400CA8B5D /* UIView+NFLayout.m in Sources */,
 				73EB3F8A1E6FDEE400CA8B5D /* UIImage+HeinQi.m in Sources */,
+				7339CB951EC003FA00E5E600 /* UILabel+WT.m in Sources */,
 				732BC86D1E6FD17400B8B1BD /* AppDelegate.m in Sources */,
 				730D38821E79243A00EE4692 /* UBChongZhiView.m in Sources */,
 				73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */,
@@ -2421,6 +2600,8 @@
 				73EB3ED41E6FD7DB00CA8B5D /* FirstViewController.m in Sources */,
 				73E7DA721E7F743300371E33 /* WHC_DownloadObject.m in Sources */,
 				73EB3FC81E6FDEE400CA8B5D /* GCDSemaphore.m in Sources */,
+				7339CBA31EC03BB700E5E600 /* FirstViewModel.m in Sources */,
+				7339CB9B1EC003FA00E5E600 /* WTTextView.m in Sources */,
 				73E7DA671E7BAFF400371E33 /* VideoModelZL.m in Sources */,
 				732DFC861E94EE7500D024F8 /* KYBaseViewController.m in Sources */,
 				73EB3F8C1E6FDEE400CA8B5D /* UIView+BlankPage.m in Sources */,
@@ -2430,6 +2611,7 @@
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
+				7339CB8B1EC003FA00E5E600 /* NSArray+WT.m in Sources */,
 				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,
 				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,
 				730D38851E79244C00EE4692 /* VIPChongZhiView.m in Sources */,
@@ -2441,13 +2623,16 @@
 				73EB3ED31E6FD7DB00CA8B5D /* TestMTLModel.m in Sources */,
 				73EB3EDD1E6FD7DB00CA8B5D /* SecondViewController.m in Sources */,
 				73EB431B1E7241F200CA8B5D /* DianShiQiangViewController.m in Sources */,
+				7339CB8D1EC003FA00E5E600 /* NSString+WT.m in Sources */,
 				73EB3FBF1E6FDEE400CA8B5D /* CoreNewFeatureVC.m in Sources */,
 				73C3471A1E82495500BBBDBE /* CateListMTLModel.m in Sources */,
 				73E7DA641E7B78A800371E33 /* NSFileManagerZL.m in Sources */,
 				73EB3ED81E6FD7DB00CA8B5D /* KSNavigationController.m in Sources */,
 				732DFC721E94BCD100D024F8 /* DataManager.m in Sources */,
 				73485C5B1E9E0AAC00A6691A /* BanBenUIView.m in Sources */,
+				7339CB961EC003FA00E5E600 /* UITextView+WT.m in Sources */,
 				73E7DA7C1E7F778900371E33 /* UIScrollView+WHC_PullRefresh.m in Sources */,
+				7339CB971EC003FA00E5E600 /* UIView+WT.m in Sources */,
 				73C3472F1E84E96600BBBDBE /* AutoFitLabelView.m in Sources */,
 				73C347201E824AE300BBBDBE /* VideoListMTLModel.m in Sources */,
 				73EB3F861E6FDEE400CA8B5D /* UIBarButtonItem+Badge.m in Sources */,
@@ -2460,6 +2645,7 @@
 				73EB3ED21E6FD7DB00CA8B5D /* ZLBaseViewController.m in Sources */,
 				73E7DA5E1E7B6F0C00371E33 /* HuanCunFooterView.m in Sources */,
 				73EB3F921E6FDEE400CA8B5D /* HQRSA.m in Sources */,
+				7339CB611EBFF9C400E5E600 /* ZLTBViewController.m in Sources */,
 				73C3473F1E8519E200BBBDBE /* FilterListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

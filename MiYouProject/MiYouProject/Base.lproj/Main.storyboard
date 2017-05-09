@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1713" y="464"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--View Controller-->
         <scene sceneID="LpQ-7i-izR">
             <objects>
-                <tabBarController id="ohS-JF-S1R" sceneMemberID="viewController">
+                <tabBarController id="ohS-JF-S1R" customClass="ZLTBViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="I4f-xE-qVY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ezz-Sd-aXi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

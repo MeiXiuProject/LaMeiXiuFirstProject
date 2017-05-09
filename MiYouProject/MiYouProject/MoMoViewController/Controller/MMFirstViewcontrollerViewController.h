@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstViewModel.h"
+
 
 @interface MMFirstViewcontrollerViewController : UIViewController
 

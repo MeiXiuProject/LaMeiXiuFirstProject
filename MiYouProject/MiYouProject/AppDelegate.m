@@ -35,6 +35,12 @@
     // 使用美国站点需要增加以下代码：
     // [AVOSCloud setServiceRegion:AVServiceRegionUS];
     [AVOSCloud setApplicationId:@"2kKbnco8wb4kIFLljBHikqKH-gzGzoHsz" clientKey:@"o84My6eGdoSjHO7XJtRuh6f0"];
+    //AVOSCloud  注册子类
+    [SiFangVideoClass registerSubclass];
+    
+    
+    
+    
     //统计
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     

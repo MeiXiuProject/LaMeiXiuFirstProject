@@ -19,3 +19,9 @@
 + (void)loadZhuBoQueryList;
 
 @end
+
+@interface SiFangViewModel : NSObject
+
++ (void)loadSiFangQueryList;
+
+@end

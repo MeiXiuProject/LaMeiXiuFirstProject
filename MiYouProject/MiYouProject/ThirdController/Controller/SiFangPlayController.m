@@ -26,7 +26,13 @@
          [self settingPlayer];
     }
     else{
-        [self startWatchPlayWithID:self.id withMID:self.mid];
+        NSString * urlStr = [NSString stringWithFormat:@"http://ooqys8i9i.bkt.clouddn.com/%@.mp4",self.currentSiFangMTLModel.name];
+        NSString * codeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+        self.zaiXianUrl = [NSURL URLWithString:codeString];
+        self.zaiXianName = self.currentSiFangMTLModel.name;
+        NSLog(@"当前视频的名称为:=%@=",self.zaiXianName);
+        [self settingPlayer];
+        //[self startWatchPlayWithID:self.id withMID:self.mid];
     }
 }
 

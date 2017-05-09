@@ -22,6 +22,17 @@ static int _is_first;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置 tabbar 图标颜色
+    for (UITabBarItem *item in self.tabBarController.tabBar.items) {
+        item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        //item.title
+    }
+    // 设置 tabbarItem 选中状态下的文字颜色(不被系统默认渲染,显示文字自定义颜色)
+    NSDictionary *dictHome = [NSDictionary dictionaryWithObject:[UIColor colorWithHexString:Main_BackgroundColor] forKey:NSForegroundColorAttributeName];
+    [self.tabBarItem setTitleTextAttributes:dictHome forState:UIControlStateSelected];
+    
     _currentPage_NEW = 1;
     _currentPage_HOT = 1;
     _is_first = 1;
@@ -45,55 +56,141 @@ static int _is_first;
 - (void)rightBarButtonAction:(UIBarButtonItem *)sender{
     [MBManager showBriefAlert:@"只有认证用户才能发布视频"];
 }
-
+#pragma mark LeanCLoud 网络请求
 - (void)startAFNetworkingwithPage:(int)page withOrder:(NSString *)order{
     __weak typeof(self) weakSelf = self;
     [MBManager showLoadingInView:self.view];
-    NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
-    NSString * memID  = memDic[@"id"];
-    NSString * url = [NSString stringWithFormat:@"%@&action=sifang&page=%d&order=%@&mid=%@",URL_Common_ios,page,order,memID];
-    NSLog(@"私房链接为：%@",url);
-    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
-        [MBManager hideAlert];
-        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"私房请求的数据为：%@",dic);
-        if ([dic[@"result"] isEqualToString:@"success"]) {
+
+    AVQuery * siFangQuery = [SiFangVideoClass query];
+    siFangQuery.limit = 20;
+    siFangQuery.skip = 20*page;
+    if ([order isEqualToString:@"new"]) {
+        [siFangQuery orderByAscending:@"createdAt"];
+    }
+    else{
+        [siFangQuery orderByDescending:@"createdAt"];
+    }
+    
+    [siFangQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            [MBManager hideAlert];
             if ([order isEqualToString:@"new"]) {
-                NSArray * arr = dic[@"list"];
-                if (arr.count > 0) {
-                    [weakSelf.collectionViewARR01 addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[SiFangMTLModel class] fromJSONArray:arr error:nil]];
+                
+                if (objects.count > 0) {
+                    [weakSelf.collectionViewARR01 addObjectsFromArray:objects];
                     //NSLog(@"私房最新数组个数为：%ld",weakSelf.collectionViewARR01.count);
+                }
+                else{
+
+                    MJRefreshBackNormalFooter *footer = (MJRefreshBackNormalFooter *)self.collectionView.mj_footer;
+                        footer.stateLabel.text = @"没有更多了";
+                        //[self jieShuShuaXin];
+                        //[self.tableview.footer endRefreshing];
+                    [self.collectionView.mj_footer endRefreshing];
+                    [self.collectionView.mj_header endRefreshing];
+                        return ;
+                    
                 }
                 if (weakSelf.control.selectedSegmentIndex == 0) {
                     [weakSelf.collectionView reloadData];
                 }
                 
+                
             }
             else{
-                NSArray * arr = dic[@"list"];
-                if (arr.count > 0) {
-                    [weakSelf.collectionViewARR02 addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[SiFangMTLModel class] fromJSONArray:arr error:nil]];
+                
+                if (objects.count > 0) {
+                    [weakSelf.collectionViewARR02 addObjectsFromArray:objects];
+                } else{
+                    //MJRefreshBackNormalFooter   MJRefreshAutoNormalFooter
+                    MJRefreshBackNormalFooter *footer = (MJRefreshBackNormalFooter *)self.collectionView.mj_footer;
+                    footer.stateLabel.text = @"没有更多了";
+                    //[self jieShuShuaXin];
+                    //[self.tableview.footer endRefreshing];
+                    [self.collectionView.mj_footer endRefreshing];
+                    [self.collectionView.mj_header endRefreshing];
+                    return ;
+                    
                 }
                 if (weakSelf.control.selectedSegmentIndex == 1) {
                     [weakSelf.collectionView reloadData];
                 }
-
-            
+                
+                
             }
             
         }
+        else{
+        
+            [MBManager hideAlert];
+        }
+        
         [self.collectionView reloadData];
         
         [self.collectionView.mj_footer endRefreshing];
         [self.collectionView.mj_header endRefreshing];
-    } failure:^(NSError *error) {
-        [MBManager hideAlert];
-        [self.collectionView.mj_footer endRefreshing];
-        [self.collectionView.mj_header endRefreshing];
+        
+//        for (SiFangVideoClass * sifang in objects) {
+//            NSString * urlStr = [NSString stringWithFormat:@"http://ooqys8i9i.bkt.clouddn.com/%@.mp4",sifang.name];
+//            NSString * codeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+//            
+//            NSLog(@"编码前：=%@=\n编码后=%@=",urlStr,codeString);
+//        }
+        
     }];
-    
-
 }
+
+#pragma end mark
+
+//原来的网络请求
+//- (void)startAFNetworkingwithPage:(int)page withOrder:(NSString *)order{
+//    __weak typeof(self) weakSelf = self;
+//    [MBManager showLoadingInView:self.view];
+//    NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
+//    NSString * memID  = memDic[@"id"];
+//    NSString * url = [NSString stringWithFormat:@"%@&action=sifang&page=%d&order=%@&mid=%@",URL_Common_ios,page,order,memID];
+//    NSLog(@"私房链接为：%@",url);
+//    [[ZLSecondAFNetworking sharedInstance] getWithURLString:url parameters:nil success:^(id responseObject) {
+//        [MBManager hideAlert];
+//        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"私房请求的数据为：%@",dic);
+//        if ([dic[@"result"] isEqualToString:@"success"]) {
+//            if ([order isEqualToString:@"new"]) {
+//                NSArray * arr = dic[@"list"];
+//                if (arr.count > 0) {
+//                    [weakSelf.collectionViewARR01 addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[SiFangMTLModel class] fromJSONArray:arr error:nil]];
+//                    //NSLog(@"私房最新数组个数为：%ld",weakSelf.collectionViewARR01.count);
+//                }
+//                if (weakSelf.control.selectedSegmentIndex == 0) {
+//                    [weakSelf.collectionView reloadData];
+//                }
+//                
+//            }
+//            else{
+//                NSArray * arr = dic[@"list"];
+//                if (arr.count > 0) {
+//                    [weakSelf.collectionViewARR02 addObjectsFromArray:[MTLJSONAdapter modelsOfClass:[SiFangMTLModel class] fromJSONArray:arr error:nil]];
+//                }
+//                if (weakSelf.control.selectedSegmentIndex == 1) {
+//                    [weakSelf.collectionView reloadData];
+//                }
+//
+//            
+//            }
+//            
+//        }
+//        [self.collectionView reloadData];
+//        
+//        [self.collectionView.mj_footer endRefreshing];
+//        [self.collectionView.mj_header endRefreshing];
+//    } failure:^(NSError *error) {
+//        [MBManager hideAlert];
+//        [self.collectionView.mj_footer endRefreshing];
+//        [self.collectionView.mj_header endRefreshing];
+//    }];
+//    
+//
+//}
 
 
 #pragma mark CollectionViewCellDelegate 代理方法
@@ -155,7 +252,7 @@ static int _is_first;
         self.collectioinViewARR = [self.collectionViewARR02 mutableCopy];
     }
     
-    SiFangMTLModel * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
+    SiFangVideoClass * model = [self.collectioinViewARR objectAtIndex:indexPath.row];
     cell.nameLabel.text = model.name;
     //[cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:PLACEHOLDER_IMAGE];
     //检测缓存中是否已存在图片
@@ -173,7 +270,7 @@ static int _is_first;
      */
     
     if (myCachedImage) {
-        NSLog(@"缓存中有图片");
+        //NSLog(@"缓存中有图片");
         [cell.headerImageVIew sd_setImageWithURL:[NSURL URLWithString:model.avator] placeholderImage:[UIImage imageNamed:@"icon_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -181,15 +278,15 @@ static int _is_first;
         }];
     }
     else{
-        NSLog(@"缓存中没有图片时执行方法");
+        //NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.avator] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            NSLog(@"处理下载进度");
+            //NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
-                NSLog(@"下载有错误");
+                //NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.headerImageVIew setImage:image];
@@ -237,7 +334,7 @@ static int _is_first;
      */
     
     if (myCachedImage) {
-        NSLog(@"缓存中有图片");
+        //NSLog(@"缓存中有图片");
         [cell.videoImageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"sifang_default"] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -245,15 +342,15 @@ static int _is_first;
         }];
     }
     else{
-        NSLog(@"缓存中没有图片时执行方法");
+        //NSLog(@"缓存中没有图片时执行方法");
         [[SDWebImageManager sharedManager].imageDownloader downloadImageWithURL:[NSURL URLWithString:model.pic] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            NSLog(@"处理下载进度");
+            //NSLog(@"处理下载进度");
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (error) {
-                NSLog(@"下载有错误");
+                //NSLog(@"下载有错误");
             }
             if (image) {
-                NSLog(@"下载图片完成");
+                //NSLog(@"下载图片完成");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     // switch back to the main thread to update your UI
                     [cell.videoImageView setImage:image];
@@ -308,54 +405,60 @@ static int _is_first;
     NSDictionary * memDic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.currentMemberMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:memDic error:nil];
     
-    if ([sender.sifangModel.isBuy boolValue] == YES) {
-        SiFangPlayController * vc = [[SiFangPlayController alloc]init];
-        vc.mid = self.currentMemberMTLModel.id;
-        vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
-        vc.currentSiFangMTLModel = sender.sifangModel;
-        [self.navigationController pushViewController:vc animated:NO];
-
-    }else{
-        int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_POINTS_NUM ] intValue];
-        if (UBpoitnts < [sender.sifangModel.price intValue]) {
-            __weak typeof(self) weakSelf = self;
-            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
-            alertZL.titleName = @"U币余额不足";
-            alertZL.cancelBtnTitle = @"取消";
-            alertZL.okBtnTitle = @"充值";
-            [alertZL cancelBlockAction:^(BOOL success) {
-                [alertZL hideCustomeAlertView];
-            }];
-            [alertZL okButtonBlockAction:^(BOOL success) {
-                NSLog(@"点击了去支付按钮");
-                [alertZL hideCustomeAlertView];
-                ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
-                vc.UB_or_VIP = UB_ChongZhi;
-                [weakSelf.navigationController pushViewController:vc animated:YES];
-            }];
-            [alertZL showCustomAlertView];
-        }
-        else{
-            
-            int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
-            NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
-            [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MEMBER_POINTS_NUM];
-            SiFangPlayController * vc = [[SiFangPlayController alloc]init];
-            vc.mid = self.currentMemberMTLModel.id;
-            vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
-            vc.currentSiFangMTLModel = sender.sifangModel;
-            [self.navigationController pushViewController:vc animated:NO];
-        }
-    }
+    SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+    vc.mid = self.currentMemberMTLModel.id;
+    vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+    vc.currentSiFangMTLModel = sender.sifangModel;
+    [self.navigationController pushViewController:vc animated:NO];
     
+//    if ([sender.sifangModel.isBuy boolValue] == YES) {
+//        SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+//        vc.mid = self.currentMemberMTLModel.id;
+//        vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+//        vc.currentSiFangMTLModel = sender.sifangModel;
+//        [self.navigationController pushViewController:vc animated:NO];
+//
+//    }else{
+//        int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_POINTS_NUM ] intValue];
+//        if (UBpoitnts < [sender.sifangModel.price intValue]) {
+//            __weak typeof(self) weakSelf = self;
+//            AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
+//            alertZL.titleName = @"U币余额不足";
+//            alertZL.cancelBtnTitle = @"取消";
+//            alertZL.okBtnTitle = @"充值";
+//            [alertZL cancelBlockAction:^(BOOL success) {
+//                [alertZL hideCustomeAlertView];
+//            }];
+//            [alertZL okButtonBlockAction:^(BOOL success) {
+//                NSLog(@"点击了去支付按钮");
+//                [alertZL hideCustomeAlertView];
+//                ChongZhiViewController * vc = [[ChongZhiViewController alloc]init];
+//                vc.UB_or_VIP = UB_ChongZhi;
+//                [weakSelf.navigationController pushViewController:vc animated:YES];
+//            }];
+//            [alertZL showCustomAlertView];
+//        }
+//        else{
+//            
+//            int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
+//            NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
+//            [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MEMBER_POINTS_NUM];
+//            SiFangPlayController * vc = [[SiFangPlayController alloc]init];
+//            vc.mid = self.currentMemberMTLModel.id;
+//            vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
+//            vc.currentSiFangMTLModel = sender.sifangModel;
+//            [self.navigationController pushViewController:vc animated:NO];
+//        }
+//    }
+//    
 }
 //执行 评论按钮方法
 - (void)pingLunButtonAction:(UIButton *)sender{
-    
+    /*
     PingLunViewController * vc = [[PingLunViewController alloc]init];
     vc.id = sender.tag;
     [self.navigationController pushViewController:vc animated:YES];
-
+*/
 }
 
 #pragma mark  设置CollectionViewCell是否可以被点击
@@ -472,14 +575,17 @@ static int _is_first;
 {
     //[self.collectionView reloadData];
     if (control.selectedSegmentIndex == 0) {
-        
+        [self.collectionView reloadData];
     }
     else{
         if (_is_first == 1) {
             [self startAFNetworkingwithPage:_currentPage_HOT withOrder:@"hot"];
             _is_first++;
         }
+        else{
         
+            [self.collectionView reloadData];
+        }
     }
     
 }

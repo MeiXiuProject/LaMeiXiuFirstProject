@@ -34,6 +34,6 @@
 @property (strong, nonatomic) NSString * mid;
 @property (strong, nonatomic) NSString * id;
 
-@property (strong, nonatomic) SiFangMTLModel * currentSiFangMTLModel;
+@property (strong, nonatomic) SiFangVideoClass *currentSiFangMTLModel;//SiFangMTLModel * currentSiFangMTLModel;
 
 @end

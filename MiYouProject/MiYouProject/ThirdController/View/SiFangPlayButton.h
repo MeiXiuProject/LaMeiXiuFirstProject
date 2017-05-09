@@ -11,6 +11,6 @@
 @interface SiFangPlayButton : UIButton
 
 @property (assign, nonatomic) int videoID;
-@property (assign, nonatomic) SiFangMTLModel * sifangModel;
+@property (assign, nonatomic) SiFangVideoClass * sifangModel;//SiFangMTLModel * sifangModel;
 
 @end

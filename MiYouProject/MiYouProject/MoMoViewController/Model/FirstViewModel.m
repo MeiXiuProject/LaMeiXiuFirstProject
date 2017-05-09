@@ -87,12 +87,12 @@
     //[query includeKey:@"image"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"查找的对象01的个数为：%ld",objects.count);
+            //NSLog(@"查找的对象01的个数为：%ld",objects.count);
             for (int i = 0;i<objects.count;i++) {
                 
-                AVObject * zhuboObject = [AVObject objectWithClassName:@"ZhuBoClass"];
+                AVObject * zhuboObject = [objects objectAtIndex:i];
                 NSString * nickName = [zhuboObject objectForKey:@"nickname"];
-                NSLog(@"昵称为：%@",nickName);
+                //NSLog(@"昵称为：%@",nickName);
                 
             }
         }
@@ -102,3 +102,34 @@
 
 
 @end
+
+@implementation SiFangViewModel
+
++ (void)loadSiFangQueryList{
+    
+
+    AVQuery * query = [SiFangVideoClass query];
+    query.limit = 50;
+    //query.skip = 100;
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+       
+        for (SiFangVideoClass * sifang in objects) {
+            NSString * urlStr = [NSString stringWithFormat:@"http://ooqys8i9i.bkt.clouddn.com/%@.mp4",sifang.name];
+            NSString * codeString = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];//去掉特殊字符
+            
+            //NSLog(@"编码前：=%@=\n编码后=%@=",urlStr,codeString);
+        }
+        
+    }];
+    
+    //http://ooqys8i9i.bkt.clouddn.com/%20%E6%88%91%E7%9A%84%E8%85%BF%E6%BC%82%E4%BA%AE%E5%90%97%EF%BC%9F.mp4
+    //http://ooqys8i9i.bkt.clouddn.com/100.mp4
+    
+    //http://ooqys8i9i.bkt.clouddn.com/
+}
+
+
+
+
+@end
+

@@ -35,4 +35,5 @@
 #import "MoMoURLZLHeader.h"
 #import "NSUserdefalutZL.h"
 
+#import "FirstAVObjectModel.h"
 #endif /* MyPrefixHeader_pch */

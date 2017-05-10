@@ -10,4 +10,7 @@
 
 @interface MianZeViewController : ZLBaseViewController
 
+
+@property (strong, nonatomic) IBOutlet UILabel *versionNumLabel;
+
 @end

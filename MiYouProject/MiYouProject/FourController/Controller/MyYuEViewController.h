@@ -11,5 +11,5 @@
 
 @interface MyYuEViewController : ZLBaseViewController
 @property (strong, nonatomic) IBOutlet UILabel *yuELabel;
-@property (strong, nonatomic) UserMessageMTLModel * userModel;
+@property (strong, nonatomic) MoMoMemberClass * userModel;
 @end

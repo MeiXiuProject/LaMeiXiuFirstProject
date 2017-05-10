@@ -47,7 +47,7 @@
 @dynamic vip;
 @dynamic id;
 @dynamic points;
-
+@dynamic username;
 + (NSString *)parseClassName{
     return @"_User";
 

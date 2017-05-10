@@ -40,6 +40,6 @@
 @property (strong, nonatomic) NSNumber * vip;
 @property (strong, nonatomic) NSNumber * points;
 @property (strong, nonatomic) NSNumber * id;
-
+@property (copy, nonatomic) NSString * username;
 
 @end

@@ -37,7 +37,7 @@
     [AVOSCloud setApplicationId:@"2kKbnco8wb4kIFLljBHikqKH-gzGzoHsz" clientKey:@"o84My6eGdoSjHO7XJtRuh6f0"];
     //AVOSCloud  注册子类
     [SiFangVideoClass registerSubclass];
-    
+    [MoMoMemberClass registerSubclass];
     
     
     

@@ -17,16 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //设置 tabbar 图标颜色
-    for (UITabBarItem *item in self.tabBarController.tabBar.items) {
-        item.selectedImage = [item.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        
-        item.image = [item.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        //item.title
-    }
-    // 设置 tabbarItem 选中状态下的文字颜色(不被系统默认渲染,显示文字自定义颜色)
-    NSDictionary *dictHome = [NSDictionary dictionaryWithObject:[UIColor colorWithHexString:Main_BackgroundColor] forKey:NSForegroundColorAttributeName];
-    [self.tabBarItem setTitleTextAttributes:dictHome forState:UIControlStateSelected];
+    [self setTabBarImageAndTextColor];
     
     //全局队列  并行 异步函数
     [GlobalQueue executeAsyncTask:^{
@@ -50,7 +41,7 @@
 
 - (void)FirstTestLeanCloudFunction{
     //注册登录
-    //[FirstViewModel signUpAndLoginFunction];
+    [FirstViewModel signUpAndLoginFunction];
     
     [MoMoZhuBoViewModel loadZhuBoQueryList];
     [SiFangViewModel loadSiFangQueryList];

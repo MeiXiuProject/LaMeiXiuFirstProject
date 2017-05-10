@@ -31,6 +31,7 @@ static int jd;
     
     _index_0_height = SIZE_WIDTH*(295.0/675.0);
     _index_1_height = SIZE_WIDTH*(50.0/325.0);
+    
     [self loadTableview];
     
     __weak typeof(self) weakSelf = self;
@@ -39,11 +40,29 @@ static int jd;
     }];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    jd = 1;//加载会员图片 时判断
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-    [self startAFNetworking];
     
+    [super viewDidAppear:animated];
+    jd = 1;//加载会员图片 时判断
+    [self.navigationController setNavigationBarHidden:YES];
+    //[self startAFNetworking];
+    [self startAVOSCloudNetworking];
+}
+
+- (void)startAVOSCloudNetworking{
+    [MBManager showLoadingInView:self.view];
+    //__weak typeof(self) weakSelf = self;
+    self.currentMoMoUser = [MoMoMemberClass currentUser];
+    //sleep(1);
+    //[self performSelector:@selector(reloadDataAfter2) withObject:nil afterDelay:1.0];
+    [MainQueue executeDelayTask:^{
+        [self reloadDataAfter2];
+    } afterDelaySecs:1.0];
+    
+}
+- (void)reloadDataAfter2{
+    [self.tableView reloadData];
+    [MBManager hideAlert];
+
 }
 
 - (void)startAFNetworking{
@@ -99,7 +118,7 @@ static int jd;
 }
 #pragma mark TableviewDelegate方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 5;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height = 0.0f;
@@ -128,9 +147,10 @@ static int jd;
         if (!hcell) {
             hcell = (PersonHederTableViewCell *)[[NSBundle mainBundle] loadNibNamed:@"PersonHederTableViewCell" owner:self options:nil][0];
         }
-        hcell.userNameLabel.text = self.userInfoModel.nickname;
+        hcell.userNameLabel.text = self.currentMoMoUser.username;
         
-        int vipNum = [self.userMessageModel.vip intValue];
+        int vipNum = [[self.currentMoMoUser objectForKey:@"vip" ] intValue];
+        NSLog(@"VIP等级为：%d",vipNum);
         switch (vipNum) {
             case 1:
                 hcell.huiYuanDengJiLabel.text = @"青铜会员";
@@ -157,7 +177,7 @@ static int jd;
                 hcell.huiYuanDengJiLabel.text = @"普通会员";
                 break;
         }
-        hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
+        hcell.UBiNumLabel.text = [NSString stringWithFormat:@"%d",[[self.currentMoMoUser objectForKey:@"points" ] intValue]];
         UIImage * image = [self readHeadImageFromUserDefault];
         if (!zlObjectIsEmpty(image)) {
             [hcell.headerImageVIew setImage:image];
@@ -187,7 +207,7 @@ static int jd;
         
         cell = fcell;
     }
-    else if (indexPath.row == 2){
+    else if (indexPath.row == 10){
     
         static NSString * buttonCellID = @"ThirdTeQuanTableViewCellID";
         ThirdTeQuanTableViewCell * fcell = (ThirdTeQuanTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
@@ -246,6 +266,7 @@ static int jd;
                         NSLog(@"下载图片完成");
                         dispatch_async(dispatch_get_main_queue(), ^{
                             // switch back to the main thread to update your UI
+                            
                             [btn setBackgroundImage:image forState:UIControlStateNormal];
                             //[fcell layoutSubviews];
                         });
@@ -264,7 +285,7 @@ static int jd;
         //[fcell setNeedsDisplay];
         cell = fcell;
     }
-    else if (indexPath.row == 3){
+    else if (indexPath.row == 2){
         static NSString * buttonCellID = @"ThirdTeQuanTableViewCellID";
         ThirdTeQuanTableViewCell * fcell = (ThirdTeQuanTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
         if (!fcell) {
@@ -280,7 +301,7 @@ static int jd;
         fcell.souHuButton.hidden = YES;
         cell = fcell;
     }
-    else if (indexPath.row == 4){
+    else if (indexPath.row == 3){
         static NSString * buttonCellID = @"ThirdTeQuanTableViewCellID";
         ThirdTeQuanTableViewCell * fcell = (ThirdTeQuanTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
         if (!fcell) {
@@ -296,7 +317,7 @@ static int jd;
         fcell.souHuButton.hidden = YES;
         cell = fcell;
     }
-    else if (indexPath.row == 5){
+    else if (indexPath.row == 4){
         static NSString * buttonCellID = @"ThirdTeQuanTableViewCellID";
         ThirdTeQuanTableViewCell * fcell = (ThirdTeQuanTableViewCell *)[tableView dequeueReusableCellWithIdentifier:buttonCellID];
         if (!fcell) {
@@ -317,21 +338,21 @@ static int jd;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了");
-    if (indexPath.row == 3) {
+    if (indexPath.row == 2) {
         MyYuEViewController * yuEVC = [[MyYuEViewController alloc]init];
         //yuEVC.yuELabel.text = [NSString stringWithFormat:@"%d",[self.userMessageModel.points intValue]];
-        yuEVC.userModel = self.userMessageModel;
+        yuEVC.userModel = self.currentMoMoUser;
         [self.navigationController pushViewController:yuEVC animated:YES];
     }
     if (indexPath.row == 0) {
         PersonInfoViewController * vc = [[PersonInfoViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (indexPath.row == 4) {
+    if (indexPath.row == 3) {
         HuanCunCenterViewController * vc = [[HuanCunCenterViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (indexPath.row == 5) {
+    if (indexPath.row == 4) {
         SettingViewController * setVC = [[SettingViewController alloc]init];
         [self.navigationController pushViewController:setVC animated:YES];
     }

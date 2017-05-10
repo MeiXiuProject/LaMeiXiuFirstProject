@@ -27,4 +27,6 @@
 @property (strong, nonatomic) UserMessageMTLModel * userMessageModel;
 @property (strong, nonatomic) UIImageView * headImageView;
 
+@property (strong, nonatomic) MoMoMemberClass * currentMoMoUser;
+
 @end

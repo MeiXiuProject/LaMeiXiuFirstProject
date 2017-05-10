@@ -18,6 +18,9 @@
     [super viewDidLoad];
     self.title = @"关于我们";
     // Do any additional setup after loading the view from its nib.
+    
+    NSString * versionStr = [NSString stringWithFormat:@"V%@",kAppVersion];
+    self.versionNumLabel.text = versionStr;
 }
 
 - (void)didReceiveMemoryWarning {

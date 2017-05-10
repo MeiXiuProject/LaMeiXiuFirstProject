@@ -96,6 +96,8 @@
 		7339CBA01EC017DD00E5E600 /* NSUserdefalutZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CB9F1EC017DD00E5E600 /* NSUserdefalutZL.m */; };
 		7339CBA31EC03BB700E5E600 /* FirstViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBA21EC03BB700E5E600 /* FirstViewModel.m */; };
 		7339CBA61EC14F3000E5E600 /* FirstAVObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBA51EC14F3000E5E600 /* FirstAVObjectModel.m */; };
+		7339CBA91EC2B5A700E5E600 /* SetTabBarImageTextColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBA81EC2B5A700E5E600 /* SetTabBarImageTextColor.m */; };
+		7339CBAC1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7339CBAB1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.m */; };
 		73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2E1E9CAD3F00A6691A /* libz.tbd */; };
 		73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */; };
@@ -475,6 +477,10 @@
 		7339CBA21EC03BB700E5E600 /* FirstViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewModel.m; sourceTree = "<group>"; };
 		7339CBA41EC14F3000E5E600 /* FirstAVObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstAVObjectModel.h; sourceTree = "<group>"; };
 		7339CBA51EC14F3000E5E600 /* FirstAVObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstAVObjectModel.m; sourceTree = "<group>"; };
+		7339CBA71EC2B5A700E5E600 /* SetTabBarImageTextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTabBarImageTextColor.h; sourceTree = "<group>"; };
+		7339CBA81EC2B5A700E5E600 /* SetTabBarImageTextColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTabBarImageTextColor.m; sourceTree = "<group>"; };
+		7339CBAA1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZLBaseSetViewController.h"; sourceTree = "<group>"; };
+		7339CBAB1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZLBaseSetViewController.m"; sourceTree = "<group>"; };
 		73485C2C1E9CAD3600A6691A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73485C2E1E9CAD3F00A6691A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73485C301E9CAD4B00A6691A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1744,6 +1750,10 @@
 				73EB3F241E6FDEE400CA8B5D /* zhou */,
 				73EB3F811E6FDEE400CA8B5D /* ZLPageControl.h */,
 				73EB3F821E6FDEE400CA8B5D /* ZLPageControl.m */,
+				7339CBA71EC2B5A700E5E600 /* SetTabBarImageTextColor.h */,
+				7339CBA81EC2B5A700E5E600 /* SetTabBarImageTextColor.m */,
+				7339CBAA1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.h */,
+				7339CBAB1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2515,6 +2525,7 @@
 				73E7DA6B1E7BE08D00371E33 /* PlayerZLViewController.m in Sources */,
 				732DFC8D1E977CC100D024F8 /* SanVIPPlayViewController.m in Sources */,
 				7339CB9A1EC003FA00E5E600 /* WTTextField.m in Sources */,
+				7339CBAC1EC2B63C00E5E600 /* UIViewController+ZLBaseSetViewController.m in Sources */,
 				73EB43091E71313100CA8B5D /* ZLLabelCustom.m in Sources */,
 				73EB43201E727E6F00CA8B5D /* FirstSubViewViewController.m in Sources */,
 				73EB3FCB1E6FDEE400CA8B5D /* iCarousel.m in Sources */,
@@ -2617,6 +2628,7 @@
 				73EB3FD41E6FDEE400CA8B5D /* ZLPageControl.m in Sources */,
 				73EB3FA31E6FDEE400CA8B5D /* RSAEncryptor.m in Sources */,
 				73EB43121E7240EE00CA8B5D /* NSObject+XWAdd.m in Sources */,
+				7339CBA91EC2B5A700E5E600 /* SetTabBarImageTextColor.m in Sources */,
 				7339CB8B1EC003FA00E5E600 /* NSArray+WT.m in Sources */,
 				732DFC7F1E94BF9100D024F8 /* WMPlayZLViewController.m in Sources */,
 				73A3B6561E8F4F4800407957 /* VIP03VideoMTLModel03.m in Sources */,

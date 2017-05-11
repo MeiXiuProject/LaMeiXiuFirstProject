@@ -14,7 +14,7 @@
 #import "ZLSecondAFNetworking.h"
 #import "ZhiFuButtonVIew.h"
 #import "OrderZLModel.h"
-//#import <BmobPaySDK/Bmob.h>
+#import <BmobPaySDK/Bmob.h>
 #import "VIPPriceMTLModel.h"
 
 typedef NS_ENUM(NSUInteger,UBorVIP) {

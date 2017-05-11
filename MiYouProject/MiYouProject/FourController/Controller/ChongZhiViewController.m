@@ -963,6 +963,29 @@
     return CustomString;
     
 }
+
+
+- (void)bmobPayButtonAction:(id)sender{
+    [BmobPay payWithPayType:BmobWechat
+                      price:[NSNumber numberWithFloat:[@"0.9" floatValue]]
+                  orderName:@""
+                   describe:@""
+                     result:^(BOOL isSuccessful, NSError *error) {
+                         if (isSuccessful) {
+                             _result.text = @"支付成功";
+                         } else {
+                             _result.text = error.description;
+                         }
+                     }];
+    
+    [BmobPay orderInfoCallback:^(NSDictionary *orderInfo) {
+        _orderNumber = orderInfo[@"orderNumber"];
+    }];
+
+
+}
+
+
 /*
  #pragma mark - Navigation
  

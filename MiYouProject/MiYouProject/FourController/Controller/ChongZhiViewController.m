@@ -49,13 +49,13 @@
     self.UBView.scrollView.showsVerticalScrollIndicator = NO;
     self.UBView.scrollView.scrollEnabled = NO;
     [self.UBView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
-    [self.UBView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
+    [self.UBView.zhiFuButton addTarget:self action:@selector(zhifuTiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     self.VIPView = (VIPChongZhiView *)[[NSBundle mainBundle] loadNibNamed:@"UBChongZhiView" owner:self options:nil][1];
     self.VIPView.scrollView.showsVerticalScrollIndicator = NO;
     self.VIPView.scrollView.scrollEnabled = NO;
     [self.VIPView setFrame:CGRectMake(0, 0, SIZE_WIDTH, SIZE_HEIGHT-64)];
-    [self.VIPView.zhiFuButton addTarget:self action:@selector(tanChuZhiFuView) forControlEvents:UIControlEventTouchUpInside];
+    [self.VIPView.zhiFuButton addTarget:self action:@selector(zhifuTiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.backgroundView addSubview:self.UBView];
     [self.backgroundView addSubview:self.VIPView];
     self.UBView.zhangHaoLabel.text = self.memMTLModel.name;
@@ -964,28 +964,39 @@
     
 }
 
+#pragma mark BMOB 支付接口 START
+- (void)zhifuTiJiaoButtonAction:(UIButton *)sender{
+
+    [self bmobPayButtonAction:nil];
+}
+
+
 
 - (void)bmobPayButtonAction:(id)sender{
     [BmobPay payWithPayType:BmobWechat
                       price:[NSNumber numberWithFloat:[@"0.9" floatValue]]
-                  orderName:@""
-                   describe:@""
+                  orderName:@"zhou"
+                   describe:@"优惠券"
                      result:^(BOOL isSuccessful, NSError *error) {
                          if (isSuccessful) {
-                             _result.text = @"支付成功";
+                             NSLog(@"支付成功");
+                             //_result.text = @"支付成功";
                          } else {
-                             _result.text = error.description;
+                             NSLog(@"支付失败");
+                             //_result.text = error.description;
                          }
                      }];
     
     [BmobPay orderInfoCallback:^(NSDictionary *orderInfo) {
-        _orderNumber = orderInfo[@"orderNumber"];
+        NSLog(@"支付订单信息：%@",orderInfo[@"orderNumber"]);
+        //_orderNumber = orderInfo[@"orderNumber"];
     }];
 
 
 }
 
 
+#pragma end mark
 /*
  #pragma mark - Navigation
  

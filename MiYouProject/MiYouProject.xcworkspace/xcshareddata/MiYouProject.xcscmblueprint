@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8C21617B79D1ECEAB0798B960D9153D48526E748",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8C21617B79D1ECEAB0798B960D9153D48526E748" : 9223372036854775807,
+    "0C3FE05731646E48C0FC189D1EBBDA6F81F9EB45" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8962A148-99C2-470A-9586-126701C75C8E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8C21617B79D1ECEAB0798B960D9153D48526E748" : "LaMeiXiuFirstProject\/",
+    "0C3FE05731646E48C0FC189D1EBBDA6F81F9EB45" : "..\/WeiKongJianProject\/WKJFirstP"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MiYouProject",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MiYouProject\/MiYouProject.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WeiKongJianProject\/WKJFirstP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0C3FE05731646E48C0FC189D1EBBDA6F81F9EB45"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MeiXiuProject\/LaMeiXiuFirstProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8C21617B79D1ECEAB0798B960D9153D48526E748"
+    }
+  ]
+}

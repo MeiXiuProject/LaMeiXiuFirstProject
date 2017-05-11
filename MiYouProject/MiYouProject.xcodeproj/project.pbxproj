@@ -11,6 +11,8 @@
 		1838C8AA1E9A599700C443F1 /* XuanJiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1838C8A81E9A599700C443F1 /* XuanJiCollectionViewCell.m */; };
 		1838C8AB1E9A599700C443F1 /* XuanJiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838C8A91E9A599700C443F1 /* XuanJiCollectionViewCell.xib */; };
 		187EE4A11E8166F900825054 /* AlertViewCustomZL.m in Sources */ = {isa = PBXBuildFile; fileRef = 187EE4A01E8166F900825054 /* AlertViewCustomZL.m */; };
+		188D5ACE1EC4AE6100ACD95E /* BmobPaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188D5ACC1EC4AE6100ACD95E /* BmobPaySDK.framework */; };
+		188D5ACF1EC4AE6100ACD95E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188D5ACD1EC4AE6100ACD95E /* libWeChatSDK.a */; };
 		18AEC4521E759451004BD503 /* ZLCollectionGirdVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */; };
 		6FCA9D73080A2E830F25396C /* libPods-MiYouProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA82579BD57626DE9B888C7 /* libPods-MiYouProjectUITests.a */; };
 		73048F831EB1D51700DF950A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73048F821EB1D51700DF950A /* ImageIO.framework */; };
@@ -330,6 +332,8 @@
 		1838C8A91E9A599700C443F1 /* XuanJiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XuanJiCollectionViewCell.xib; sourceTree = "<group>"; };
 		187EE49F1E8166F900825054 /* AlertViewCustomZL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewCustomZL.h; sourceTree = "<group>"; };
 		187EE4A01E8166F900825054 /* AlertViewCustomZL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewCustomZL.m; sourceTree = "<group>"; };
+		188D5ACC1EC4AE6100ACD95E /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
+		188D5ACD1EC4AE6100ACD95E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		18AEC4501E759451004BD503 /* ZLCollectionGirdVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionGirdVIew.h; sourceTree = "<group>"; };
 		18AEC4511E759451004BD503 /* ZLCollectionGirdVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionGirdVIew.m; sourceTree = "<group>"; };
 		1C385CB495FC6D255934A7A8 /* libPods-MiYouProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiYouProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,8 +498,6 @@
 		73485C401E9CB07A00A6691A /* OrderZLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderZLModel.h; sourceTree = "<group>"; };
 		73485C411E9CB07A00A6691A /* OrderZLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderZLModel.m; sourceTree = "<group>"; };
 		73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
-		73485C491E9CD37D00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BmobPaySDK.framework; path = MiYouProject/Myframework/ZhiFuFrame/BmobPaySDK.framework; sourceTree = "<group>"; };
-		73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
 		73485C591E9E0AAC00A6691A /* BanBenUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BanBenUIView.h; sourceTree = "<group>"; };
 		73485C5A1E9E0AAC00A6691A /* BanBenUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BanBenUIView.m; sourceTree = "<group>"; };
 		73485C5C1E9E0ABD00A6691A /* BanBenUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BanBenUIView.xib; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 				73048F871EB1D53A00DF950A /* Security.framework in Frameworks */,
 				73048F851EB1D52200DF950A /* AssetsLibrary.framework in Frameworks */,
 				73048F831EB1D51700DF950A /* ImageIO.framework in Frameworks */,
+				188D5ACE1EC4AE6100ACD95E /* BmobPaySDK.framework in Frameworks */,
 				73485C3B1E9CAD8B00A6691A /* UIKit.framework in Frameworks */,
 				73485C481E9CCDC900A6691A /* libz.1.2.5.tbd in Frameworks */,
 				73485C3F1E9CADAB00A6691A /* CoreMotion.framework in Frameworks */,
@@ -843,6 +846,7 @@
 				73485C371E9CAD6E00A6691A /* CoreText.framework in Frameworks */,
 				73485C351E9CAD6300A6691A /* QuartzCore.framework in Frameworks */,
 				73485C331E9CAD5600A6691A /* CoreTelephony.framework in Frameworks */,
+				188D5ACF1EC4AE6100ACD95E /* libWeChatSDK.a in Frameworks */,
 				73485C311E9CAD4B00A6691A /* SystemConfiguration.framework in Frameworks */,
 				73485C2F1E9CAD3F00A6691A /* libz.tbd in Frameworks */,
 				73485C2D1E9CAD3600A6691A /* libc++.tbd in Frameworks */,
@@ -916,13 +920,13 @@
 		1D3354C620478839F6FED82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188D5ACC1EC4AE6100ACD95E /* BmobPaySDK.framework */,
+				188D5ACD1EC4AE6100ACD95E /* libWeChatSDK.a */,
 				7339CB291EBB0D5A00E5E600 /* CoreLocation.framework */,
 				7339CB271EBB0D2F00E5E600 /* libicucore.tbd */,
 				73048F861EB1D53A00DF950A /* Security.framework */,
 				73048F841EB1D52200DF950A /* AssetsLibrary.framework */,
 				73048F821EB1D51700DF950A /* ImageIO.framework */,
-				73485C4E1E9CD74C00A6691A /* BmobPaySDK.framework */,
-				73485C491E9CD37D00A6691A /* BmobPaySDK.framework */,
 				73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */,
 				73485C3E1E9CADAB00A6691A /* CoreMotion.framework */,
 				73485C3C1E9CAD9C00A6691A /* CFNetwork.framework */,
@@ -2806,6 +2810,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
@@ -2821,6 +2826,83 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"AVOSCloud\"",
+					"-l\"BSUIKit\"",
+					"-l\"Base64nl\"",
+					"-l\"CustomIOSAlertView\"",
+					"-l\"DZNSegmentedControl\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"FMDB\"",
+					"-l\"GONMarkupParser\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"KYVedioPlayer\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MGSwipeTableCell\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"Mantle\"",
+					"-l\"Masonry\"",
+					"-l\"NSString+Color\"",
+					"-l\"SDWebImage\"",
+					"-l\"VOSegmentedControl\"",
+					"-l\"WHCNetWorkKit\"",
+					"-l\"WMPageController\"",
+					"-l\"YYKit\"",
+					"-l\"ZFPlayer\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"WebP\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zhouzhou.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2834,6 +2916,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 39QNYYYY23;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/Resource/FrameWork/iOS-WebP",
@@ -2849,6 +2932,83 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MiYouProject/CommonFiles/Common/zhou/paymentcontrol/libs",
 					"$(PROJECT_DIR)/MiYouProject/Myframework/ZhiFuFrame",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"AVOSCloud\"",
+					"-l\"BSUIKit\"",
+					"-l\"Base64nl\"",
+					"-l\"CustomIOSAlertView\"",
+					"-l\"DZNSegmentedControl\"",
+					"-l\"FBRetainCycleDetector\"",
+					"-l\"FMDB\"",
+					"-l\"GONMarkupParser\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"KYVedioPlayer\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MGSwipeTableCell\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"MLeaksFinder\"",
+					"-l\"Mantle\"",
+					"-l\"Masonry\"",
+					"-l\"NSString+Color\"",
+					"-l\"SDWebImage\"",
+					"-l\"VOSegmentedControl\"",
+					"-l\"WHCNetWorkKit\"",
+					"-l\"WMPageController\"",
+					"-l\"YYKit\"",
+					"-l\"ZFPlayer\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"Bugly\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"WebP\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zhouzhou.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";

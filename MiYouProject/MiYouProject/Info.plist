@@ -30,6 +30,20 @@
 				<string>alisdkdemo</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bmobSDKDemo02</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weixin</string>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
@@ -44,16 +58,16 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>clouddn.com</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-            </dict>
-        </dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>clouddn.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>cameraDesciption</string>

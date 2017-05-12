@@ -14,6 +14,7 @@
 @interface ChongZhiViewController (){
     int _currentJINE;
     NSString * _currentOrderNUM;
+    //BmobPay* bPay;
 }
 
 @end
@@ -24,6 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Bmob支付初始化
+//    bPay = [[BmobPay alloc] init];
+//    bPay.delegate = self;
+    
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     [self.menuItems addObjectsFromArray:@[@"U币充值",@"充值VIP"]];
     
@@ -967,11 +972,23 @@
 #pragma mark BMOB 支付接口 START
 - (void)zhifuTiJiaoButtonAction:(UIButton *)sender{
 
-    [self bmobPayButtonAction:nil];
+    [BmobPay payWithPayType:BmobAlipay price:@0.1 orderName:@"会员卡" describe:@"黄金会员" result:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            NSLog(@"bmob支付成功");
+        }
+        else{
+            NSLog(@"bmob支付失败");
+        }
+    }];
+    [BmobPay orderInfoCallback:^(NSDictionary *orderInfo) {
+        NSLog(@"支付订单信息：%@",orderInfo[@"orderNumber"]);
+        //_orderNumber = orderInfo[@"orderNumber"];
+    }];
+
 }
 
 
-
+/*
 - (void)bmobPayButtonAction:(id)sender{
     [BmobPay payWithPayType:BmobWechat
                       price:[NSNumber numberWithFloat:[@"0.9" floatValue]]
@@ -994,7 +1011,43 @@
 
 
 }
+*/
+-(void)paySuccess{
+    NSLog(@"支付成功！");
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付成功" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+    [alter show];
+}
 
+-(void)payFailWithErrorCode:(int) errorCode{
+    NSLog(@"test");
+    switch(errorCode){
+            /*
+             * 4000 订单支付失败
+             * 6001 用户中途取消
+             * 6002 网络连接出错
+             */
+        case 6001:{
+            NSLog(@"用户中途取消");
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付结果" message:@"用户中途取消" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [alter show];
+        }
+            break;
+            
+        case 6002:{
+            NSLog(@"网络连接出错");
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付结果" message:@"网络连接出错" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [alter show];
+        }
+            break;
+            
+        case 4000:{
+            NSLog(@"订单支付失败");
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付结果" message:@"订单支付失败" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            [alter show];
+        }
+            break;
+    }
+}
 
 #pragma end mark
 /*

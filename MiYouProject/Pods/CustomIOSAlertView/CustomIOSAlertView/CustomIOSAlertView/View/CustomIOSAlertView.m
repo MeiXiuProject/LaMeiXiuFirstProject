@@ -19,8 +19,8 @@ const static CGFloat kCustomIOS7MotionEffectExtent                = 10.0;
 
 @implementation CustomIOSAlertView
 
-CGFloat buttonHeight = 0;
-CGFloat buttonSpacerHeight = 0;
+CGFloat buttonHeightzl = 0;
+CGFloat buttonSpacerHeightzl = 0;
 
 @synthesize parentView, containerView, dialogView, onButtonTouchUpInside;
 @synthesize delegate;
@@ -230,7 +230,7 @@ CGFloat buttonSpacerHeight = 0;
     dialogContainer.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:dialogContainer.bounds cornerRadius:dialogContainer.layer.cornerRadius].CGPath;
 
     // There is a line above the button
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, dialogContainer.bounds.size.height - buttonHeight - buttonSpacerHeight, dialogContainer.bounds.size.width, buttonSpacerHeight)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, dialogContainer.bounds.size.height - buttonHeightzl - buttonSpacerHeightzl, dialogContainer.bounds.size.width, buttonSpacerHeightzl)];
     lineView.backgroundColor = [UIColor colorWithRed:198.0/255.0 green:198.0/255.0 blue:198.0/255.0 alpha:1.0f];
     [dialogContainer addSubview:lineView];
     // ^^^
@@ -255,7 +255,7 @@ CGFloat buttonSpacerHeight = 0;
 
         UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
-        [closeButton setFrame:CGRectMake(i * buttonWidth, container.bounds.size.height - buttonHeight, buttonWidth, buttonHeight)];
+        [closeButton setFrame:CGRectMake(i * buttonWidth, container.bounds.size.height - buttonHeightzl, buttonWidth, buttonHeightzl)];
 
         [closeButton addTarget:self action:@selector(customIOS7dialogButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
         [closeButton setTag:i];
@@ -276,7 +276,7 @@ CGFloat buttonSpacerHeight = 0;
 - (CGSize)countDialogSize
 {
     CGFloat dialogWidth = containerView.frame.size.width;
-    CGFloat dialogHeight = containerView.frame.size.height + buttonHeight + buttonSpacerHeight;
+    CGFloat dialogHeight = containerView.frame.size.height + buttonHeightzl + buttonSpacerHeightzl;
 
     return CGSizeMake(dialogWidth, dialogHeight);
 }
@@ -285,11 +285,11 @@ CGFloat buttonSpacerHeight = 0;
 - (CGSize)countScreenSize
 {
     if (buttonTitles!=NULL && [buttonTitles count] > 0) {
-        buttonHeight       = kCustomIOSAlertViewDefaultButtonHeight;
-        buttonSpacerHeight = kCustomIOSAlertViewDefaultButtonSpacerHeight;
+        buttonHeightzl       = kCustomIOSAlertViewDefaultButtonHeight;
+        buttonSpacerHeightzl = kCustomIOSAlertViewDefaultButtonSpacerHeight;
     } else {
-        buttonHeight = 0;
-        buttonSpacerHeight = 0;
+        buttonHeightzl = 0;
+        buttonSpacerHeightzl = 0;
     }
 
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;

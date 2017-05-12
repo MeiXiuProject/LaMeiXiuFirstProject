@@ -45,5 +45,4 @@ target 'MiYouProject' do
   pod 'UMengAnalytics', '~> 4.2'
   pod 'Bugly', '~> 2.4'
   pod 'AVOSCloud', '~> 4.4'
-  
 end

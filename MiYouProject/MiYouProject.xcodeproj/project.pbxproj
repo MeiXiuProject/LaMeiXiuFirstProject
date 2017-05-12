@@ -116,6 +116,8 @@
 		737B24BE1E88E9A9001421FF /* PlayVideoMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */; };
 		738BF8571EC5893E005D8CF9 /* BmobPaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738BF8561EC5893E005D8CF9 /* BmobPaySDK.framework */; };
 		738BF8591EC58957005D8CF9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 738BF8581EC58957005D8CF9 /* libWeChatSDK.a */; };
+		738BF85C1EC595D0005D8CF9 /* ChongZhPayActioniModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738BF85B1EC595D0005D8CF9 /* ChongZhPayActioniModel.m */; };
+		738BF85F1EC595E0005D8CF9 /* ChongZhiVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 738BF85E1EC595E0005D8CF9 /* ChongZhiVIewModel.m */; };
 		739118B81EC5814600A30F51 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C2C1E9CAD3600A6691A /* libc++.tbd */; };
 		739118B91EC5815600A30F51 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB3E9A1E6FD48200CA8B5D /* libsqlite3.tbd */; };
 		739118BA1EC5816A00A30F51 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73485C471E9CCDC900A6691A /* libz.1.2.5.tbd */; };
@@ -504,6 +506,10 @@
 		737B24BD1E88E9A9001421FF /* PlayVideoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayVideoMTLModel.m; path = MiYouProject/FirstController/Model/PlayVideoMTLModel.m; sourceTree = SOURCE_ROOT; };
 		738BF8561EC5893E005D8CF9 /* BmobPaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPaySDK.framework; sourceTree = "<group>"; };
 		738BF8581EC58957005D8CF9 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		738BF85A1EC595D0005D8CF9 /* ChongZhPayActioniModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChongZhPayActioniModel.h; sourceTree = "<group>"; };
+		738BF85B1EC595D0005D8CF9 /* ChongZhPayActioniModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChongZhPayActioniModel.m; sourceTree = "<group>"; };
+		738BF85D1EC595E0005D8CF9 /* ChongZhiVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChongZhiVIewModel.h; sourceTree = "<group>"; };
+		738BF85E1EC595E0005D8CF9 /* ChongZhiVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChongZhiVIewModel.m; sourceTree = "<group>"; };
 		73A3B5F91E89F7A900407957 /* UserInfoMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoMTLModel.h; sourceTree = "<group>"; };
 		73A3B5FA1E89F7A900407957 /* UserInfoMTLModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoMTLModel.m; sourceTree = "<group>"; };
 		73A3B5FC1E89FA0E00407957 /* UserMessageMTLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageMTLModel.h; sourceTree = "<group>"; };
@@ -1273,6 +1279,10 @@
 				73485C411E9CB07A00A6691A /* OrderZLModel.m */,
 				732D90861EA057D900FA49A4 /* VIPPriceMTLModel.h */,
 				732D90871EA057D900FA49A4 /* VIPPriceMTLModel.m */,
+				738BF85A1EC595D0005D8CF9 /* ChongZhPayActioniModel.h */,
+				738BF85B1EC595D0005D8CF9 /* ChongZhPayActioniModel.m */,
+				738BF85D1EC595E0005D8CF9 /* ChongZhiVIewModel.h */,
+				738BF85E1EC595E0005D8CF9 /* ChongZhiVIewModel.m */,
 			);
 			path = Model02;
 			sourceTree = "<group>";
@@ -2558,6 +2568,7 @@
 				73EB3ED61E6FD7DB00CA8B5D /* UIColor+KSString.m in Sources */,
 				73E7DA7D1E7F778900371E33 /* UIView+WHC_Loading.m in Sources */,
 				73C347391E84FC5A00BBBDBE /* SearchResultModel.m in Sources */,
+				738BF85C1EC595D0005D8CF9 /* ChongZhPayActioniModel.m in Sources */,
 				73A3B63E1E8DF77F00407957 /* PingLunMTLModel.m in Sources */,
 				730D387E1E790F1C00EE4692 /* ChongZhiViewController.m in Sources */,
 				73EB3F951E6FDEE400CA8B5D /* UIImage+WebP.m in Sources */,
@@ -2591,6 +2602,7 @@
 				73485C421E9CB07A00A6691A /* OrderZLModel.m in Sources */,
 				730D38791E78DF0B00EE4692 /* XiaoXiViewController.m in Sources */,
 				73EB3FC31E6FDEE400CA8B5D /* CustomButton.m in Sources */,
+				738BF85F1EC595E0005D8CF9 /* ChongZhiVIewModel.m in Sources */,
 				73EB3FD81E6FE29F00CA8B5D /* NSDatezlModel.m in Sources */,
 				73A3B63A1E8DF2CC00407957 /* PingLunTableViewCell.m in Sources */,
 				73A3B6351E8DEE6B00407957 /* PingLunViewController.m in Sources */,

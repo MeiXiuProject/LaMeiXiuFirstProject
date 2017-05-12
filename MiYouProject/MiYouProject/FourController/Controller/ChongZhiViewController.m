@@ -14,7 +14,6 @@
 @interface ChongZhiViewController (){
     int _currentJINE;
     NSString * _currentOrderNUM;
-    //BmobPay* bPay;
 }
 
 @end
@@ -25,9 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Bmob支付初始化
-//    bPay = [[BmobPay alloc] init];
-//    bPay.delegate = self;
+
     
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     [self.menuItems addObjectsFromArray:@[@"U币充值",@"充值VIP"]];
@@ -113,34 +110,7 @@
         //make.height.mas_equalTo(160.0f);
     }];
     __weak typeof(self) weakSelf = self;
-    //滚动速度
-    CGFloat offSet=300.0;
-//    
-//    //若果字幕滚动到第二部分重复的部分则把偏移置0，设为第一部分,实现无限循环
-//    if (weakSelf.UBView.scrollView.contentOffset.y>=weakSelf.UBView.scrollView.contentSize.height / 2) {
-//        
-//        weakSelf.UBView.scrollView.contentOffset=CGPointMake(0, -90);
-//    }
-//    if (weakSelf.VIPView.scrollView.contentOffset.y>=weakSelf.VIPView.scrollView.contentSize.height / 2) {
-//        
-//        weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
-//    }
-    //[weakSelf.UBView.scrollView setBackgroundColor:[UIColor grayColor]];
-        //[weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
-        NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
-//        [UIView animateWithDuration:59.0f animations:^{
-//            [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 300)];
-//            NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
-//        } completion:^(BOOL finished) {
-//             [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
-//        }];
-    
-//    [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-//        NSLog(@"执行了动画方法");
-//        
-//        //weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);
-//        [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
-//    } completion:nil];
+
      [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
     [UIView animateWithDuration:29.0 animations:^{
         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
@@ -182,7 +152,7 @@
         weakSelf.VIPView.scrollView.contentOffset=CGPointMake(0, -90);
     }
     //切割每次动画滚动距离
-    NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
+    //NSLog(@"UBView.contentOffset的值为：=%g----=%g",self.UBView.scrollView.contentOffset.x,self.UBView.scrollView.contentOffset.y);
     
     [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         weakSelf.UBView.scrollView.contentOffset = CGPointMake(weakSelf.UBView.scrollView.contentOffset.x, weakSelf.UBView.scrollView.contentOffset.y+offSet);

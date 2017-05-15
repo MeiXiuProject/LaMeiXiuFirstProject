@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"XinXiTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"XinXiTableViewCellID"];
    
     

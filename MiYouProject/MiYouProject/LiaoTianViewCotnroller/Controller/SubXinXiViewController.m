@@ -32,22 +32,22 @@
     //load more
     int pageNum = 3;
     
-    _head = [MJRefreshNormalHeader header];
-    _head.scrollView = self.chatTableView;
-    _head.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
-        
-        [weakSelf.chatModel addRandomItemsToDataSource:pageNum];
-        
-        if (weakSelf.chatModel.dataSource.count > pageNum) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.chatTableView reloadData];
-                [weakSelf.chatTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            });
-        }
-        [weakSelf.head endRefreshing];
-    };
+//    _head = [MJRefreshNormalHeader header];
+//    _head.scrollView = self.chatTableView;
+//    _head.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+//        
+//        [weakSelf.chatModel addRandomItemsToDataSource:pageNum];
+//        
+//        if (weakSelf.chatModel.dataSource.count > pageNum) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
+//            
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [weakSelf.chatTableView reloadData];
+//                [weakSelf.chatTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//            });
+//        }
+//        [weakSelf.head endRefreshing];
+//    };
 }
 
 - (void)loadBaseViewsAndData
@@ -185,7 +185,7 @@
 }
 
 - (void)dealloc{
-    [_head free];
+    //[_head free];
 }
 /*
 #pragma mark - Navigation

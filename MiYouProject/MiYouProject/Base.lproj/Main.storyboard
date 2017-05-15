@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oKj-2N-pT8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oKj-2N-pT8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
         <!--VIP-->
         <scene sceneID="ykw-E0-Cgv">
             <objects>
-                <viewController title="VIP" id="DuP-uQ-osn" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController title="VIP" id="DuP-uQ-osn" customClass="ListTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RKk-Xl-REc"/>
                         <viewControllerLayoutGuide type="bottom" id="TYF-cU-aZd"/>
@@ -53,13 +53,28 @@
                     <view key="view" contentMode="scaleToFill" id="1It-ZU-Wr7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="leI-35-Tcg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TYF-cU-aZd" firstAttribute="top" secondItem="leI-35-Tcg" secondAttribute="bottom" id="bV2-di-KaG"/>
+                            <constraint firstAttribute="trailing" secondItem="leI-35-Tcg" secondAttribute="trailing" id="dwx-ea-LVh"/>
+                            <constraint firstItem="leI-35-Tcg" firstAttribute="leading" secondItem="1It-ZU-Wr7" secondAttribute="leading" id="lvy-FL-5jf"/>
+                            <constraint firstItem="leI-35-Tcg" firstAttribute="top" secondItem="RKk-Xl-REc" secondAttribute="bottom" id="xtR-Ll-Mqi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="VIP" image="VIPbuliang" selectedImage="VIPliang" id="aDO-VY-P2K"/>
+                    <connections>
+                        <outlet property="tableView" destination="leI-35-Tcg" id="bWY-Xq-xBH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bX-pu-FHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="1119"/>
+            <point key="canvasLocation" x="2455" y="1092"/>
         </scene>
         <!--我的-->
         <scene sceneID="Wea-vA-2Lc">

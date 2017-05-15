@@ -13,6 +13,7 @@
 
 @interface ChongZhiViewController (){
     int _currentJINE;
+    int _currentVIPLEVEL;
     NSString * _currentOrderNUM;
 }
 
@@ -24,14 +25,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     
     self.view.backgroundColor = [UIColor colorWithhex16stringToColor:Main_grayBackgroundColor];
     [self.menuItems addObjectsFromArray:@[@"U币充值",@"充值VIP"]];
     
     NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:MEMBER_INFO_DIC];
     self.memMTLModel = [MTLJSONAdapter modelOfClass:[MemberMTLModel class] fromJSONDictionary:dic error:nil];
-
+    //avos用户信息
+    self.currentMoMoMemberInfo = [MoMoMemberClass currentUser];
+    
+    
+    
     self.navigationItem.titleView = self.control;
     
     if (self.UB_or_VIP == UB_ChongZhi) {
@@ -60,9 +65,17 @@
     [self.VIPView.zhiFuButton addTarget:self action:@selector(zhifuTiJiaoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.backgroundView addSubview:self.UBView];
     [self.backgroundView addSubview:self.VIPView];
-    self.UBView.zhangHaoLabel.text = self.memMTLModel.name;
-    [self startAFNetworkingUB];
-    [self startAFNetworkingVIP];
+    
+    
+    //网络请求VIP和UB信息
+    //[self startAFNetworkingUB];
+    //[self startAFNetworkingVIP];
+    //AVOS 用户信息  UB和 VIP信息
+    [self bindUBViewInfoModel];
+    [self bindVIPViewInfoModel];
+    
+    
+    
     [self.UBView.button01 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.UBView.button02 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.UBView.button03 addTarget:self action:@selector(UBJinEButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -110,19 +123,19 @@
         //make.height.mas_equalTo(160.0f);
     }];
     __weak typeof(self) weakSelf = self;
-
-     [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
+    
+    [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
     [UIView animateWithDuration:29.0 animations:^{
         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 90)];
     } completion:^(BOOL finished) {
         [weakSelf.UBView.scrollView setContentOffset:CGPointMake(0, 0)];
     }];
     [UIView animateWithDuration:29.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-       // weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
+        // weakSelf.VIPView.scrollView.contentOffset = CGPointMake(weakSelf.VIPView.scrollView.contentOffset.x, weakSelf.VIPView.scrollView.contentOffset.y+offSet);
         [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 90)];
     } completion:^(BOOL finished){
         [weakSelf.VIPView.scrollView setContentOffset:CGPointMake(0, 0)];
-    
+        
     }];
     //滚动动画
     [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(addAnimationScrollview) userInfo:nil repeats:YES];
@@ -137,7 +150,7 @@
 //滚动动画
 - (void)addAnimationScrollview{
     __weak typeof(self) weakSelf = self;
-
+    
     
     //滚动速度
     CGFloat offSet=90;
@@ -178,46 +191,64 @@
 }
 //支付按钮
 - (void)tanChuZhiFuView{
-    
-    if (self.UB_or_VIP == UB_ChongZhi) {
-        if (_currentJINE > 0) {
-            __weak typeof(self) weakSelf = self;
-            [UIView animateWithDuration:0.3 animations:^{
-                [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(self.view.mas_left);
-                    make.right.mas_equalTo(self.view.mas_right);
-                    make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
-                    make.bottom.mas_equalTo(self.view.mas_bottom);
-                    //make.height.mas_equalTo(160.0f);
-                }];
-                
+    if (_currentJINE > 0) {
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:0.3 animations:^{
+            [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.left.mas_equalTo(self.view.mas_left);
+                make.right.mas_equalTo(self.view.mas_right);
+                make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+                make.bottom.mas_equalTo(self.view.mas_bottom);
+                //make.height.mas_equalTo(160.0f);
             }];
-        }
-        else{
             
-            [MBManager showBriefAlert:@"请选择充值类型"];
-        }
+        }];
     }
     else{
-        if (self.currentPriceModel != nil) {
-            __weak typeof(self) weakSelf = self;
-            [UIView animateWithDuration:0.3 animations:^{
-                [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(self.view.mas_left);
-                    make.right.mas_equalTo(self.view.mas_right);
-                    make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
-                    make.bottom.mas_equalTo(self.view.mas_bottom);
-                    //make.height.mas_equalTo(160.0f);
-                }];
-                
-            }];
-        }
-        else{
-            
-            [MBManager showBriefAlert:@"请选择充值类型"];
-        }
         
+        [MBManager showBriefAlert:@"请选择充值类型"];
     }
+    /*
+     if (self.UB_or_VIP == UB_ChongZhi) {
+     if (_currentJINE > 0) {
+     __weak typeof(self) weakSelf = self;
+     [UIView animateWithDuration:0.3 animations:^{
+     [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+     make.left.mas_equalTo(self.view.mas_left);
+     make.right.mas_equalTo(self.view.mas_right);
+     make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+     make.bottom.mas_equalTo(self.view.mas_bottom);
+     //make.height.mas_equalTo(160.0f);
+     }];
+     
+     }];
+     }
+     else{
+     
+     [MBManager showBriefAlert:@"请选择充值类型"];
+     }
+     }
+     else{
+     if (self.currentPriceModel != nil) {
+     __weak typeof(self) weakSelf = self;
+     [UIView animateWithDuration:0.3 animations:^{
+     [weakSelf.zhiFuView mas_updateConstraints:^(MASConstraintMaker *make) {
+     make.left.mas_equalTo(self.view.mas_left);
+     make.right.mas_equalTo(self.view.mas_right);
+     make.top.mas_equalTo(self.view.mas_bottom).offset(-160.0f);
+     make.bottom.mas_equalTo(self.view.mas_bottom);
+     //make.height.mas_equalTo(160.0f);
+     }];
+     
+     }];
+     }
+     else{
+     
+     [MBManager showBriefAlert:@"请选择充值类型"];
+     }
+     
+     }
+     */
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -241,6 +272,8 @@
     
 }
 
+
+#pragma mark 网络请求UB页面信息 start
 - (void)startAFNetworkingUB{
     [MBManager showLoadingInView:self.view];
     __weak typeof(self) weakSelf = self;
@@ -267,7 +300,7 @@
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
                 //dic[@"desc"]
-                 NSString * removeStr = [self removeHTML:dic[@"desc"]];
+                NSString * removeStr = [self removeHTML:dic[@"desc"]];
                 weakSelf.UBView.jieShaoLabel.text = removeStr;
             }
             
@@ -321,7 +354,7 @@
             }
             if (!zlObjectIsEmpty(dic[@"desc"])) {
                 NSString * removeStr = [self removeHTML:dic[@"desc"]];
-               //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+                //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
                 weakSelf.VIPView.jieshaoLabel.text = removeStr;
             }
             NSArray * arr00 = dic[@"buyVipList"];
@@ -352,7 +385,7 @@
             if (!zlArrayIsEmpty(arrPriceARR)) {
                 self.vipPriceModelARR = (NSMutableArray *)[MTLJSONAdapter modelsOfClass:[VIPPriceMTLModel class] fromJSONArray:arrPriceARR error:nil];
             }
-            NSLog(@"会员等级数组列表个数：%ld",self.vipPriceModelARR.count);
+            NSLog(@"会员等级数组列表个数：%l d",self.vipPriceModelARR.count);
         }
         
     } failure:^(NSError *error) {
@@ -360,7 +393,94 @@
     }];
     
 }
-
+#pragma end 网络请求 VIP页面信息  END
+#pragma mark AVOS 请求信息  绑定信息 START
+- (void)bindUBViewInfoModel{
+    __weak typeof(self) weakSelf = self;
+    ChongZhiVIewModel * UBModel = [ChongZhiVIewModel shareModel];
+    
+    weakSelf.UBView.yuELabel.text = [NSString stringWithFormat:@"%d",[self.currentMoMoMemberInfo.points intValue]];
+    
+    weakSelf.UBView.duiHuanLabel.text = [NSString stringWithFormat:@"充值数量:%dU币=1元",[UBModel.exchange intValue]];
+    self.UBView.zhangHaoLabel.text = self.currentMoMoMemberInfo.username;
+    NSArray * arrGift =UBModel.gift;
+    if (!zlArrayIsEmpty(arrGift)) {
+        weakSelf.UBMiaoShuARR = (NSMutableArray *)arrGift;
+        //weakSelf.UBView.fuWuLabel.text = ;
+    }
+    
+    weakSelf.UBView.renShuLabel.text = [NSString stringWithFormat:@"%d",[UBModel.total intValue]];
+    
+    NSString * removeStr = [self removeHTML:UBModel.desc];
+    weakSelf.UBView.jieShaoLabel.text = removeStr;
+    
+    NSArray * arr00 = UBModel.rechargeList;
+    if (!zlArrayIsEmpty(arr00)) {
+        NSString * string = [NSString stringWithFormat:@""];
+        for (NSDictionary * dic00 in arr00) {
+            NSString * name = dic00[@"name"];
+            NSString * con = dic00[@"content"];
+            NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
+            //NSLog(@"解析已充值的用户：%@",str);
+            string = [string stringByAppendingString:str];
+        }
+        //NSLog(@"已充值的UB的用户：%@",string);
+        UILabel * label = [[UILabel alloc]init];
+        label.numberOfLines = 0;
+        label.font = [UIFont systemFontOfSize:12.0f];
+        label.textColor = [UIColor blackColor];
+        label.text = string;
+        [weakSelf.UBView.scrollView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.with.bottom.mas_equalTo(weakSelf.UBView.scrollView);
+            make.left.with.right.mas_equalTo(weakSelf.UBView.scrollView).offset(20.0f);
+        }];
+        
+    }
+}
+- (void)bindVIPViewInfoModel{
+    
+    __weak typeof(self) weakSelf = self;
+    ChongZhiVIPViewModel * VIPModel = [ChongZhiVIPViewModel shareModel];
+    NSArray *  giftARR = VIPModel.gift;
+    if (!zlArrayIsEmpty(giftARR)) {
+        weakSelf.VIPMiaoShuARR = giftARR;
+        //weakSelf.VIPView.fuWuXiaLabel.text = @"";
+    }
+    if (!zlObjectIsEmpty(VIPModel.total)) {
+        weakSelf.VIPView.renShuLabel.text = [NSString stringWithFormat:@"%d",[VIPModel.total intValue]];
+    }
+    if (!zlObjectIsEmpty(VIPModel.desc)) {
+        NSString * removeStr = [self removeHTML:VIPModel.desc];
+        //NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithData:[(NSString *)dic[@"desc"] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        weakSelf.VIPView.jieshaoLabel.text = removeStr;
+    }
+    NSArray * arr00 = VIPModel.buyVipList;
+    if (!zlArrayIsEmpty(arr00)) {
+        NSString * string = [NSString stringWithFormat:@""];
+        for (NSDictionary * dic00 in arr00) {
+            NSString * name = dic00[@"name"];
+            NSString * con = dic00[@"content"];
+            NSString * str = [NSString stringWithFormat:@"%@ %@\n",name,con];
+            //NSLog(@"解析VIP已充值的用户：%@",str);
+            string = [string stringByAppendingString:str];
+        }
+        //NSLog(@"已充值的VIP的用户：%@",string);
+        UILabel * label = [[UILabel alloc]init];
+        label.numberOfLines = 0;
+        label.font = [UIFont systemFontOfSize:12.0f];
+        label.textColor = [UIColor blackColor];
+        label.text = string;
+        //label.backgroundColor = [UIColor grayColor];
+        [weakSelf.VIPView.scrollView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.with.bottom.mas_equalTo(weakSelf.VIPView.scrollView);
+            make.left.with.right.mas_equalTo(weakSelf.VIPView.scrollView).offset(20.0f);
+        }];
+        
+    }
+}
+#pragma mark AVOS 请求信息  绑定信息 ERD
 //+ (void)initialize
 //{
 //#if DEBUG_APPERANCE
@@ -380,7 +500,6 @@
 //金额按钮执行方法
 - (void)UBJinEButtonAction:(UIButton *)sender{
     // 10  20  30  50  100  500
-    
     for (UIButton * btn in self.ubButtonARR) {
         btn.selected = NO;
     }
@@ -394,7 +513,8 @@
                 if (self.vipPriceModelARR.count > 0) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                // _currentJINE = 18;
+                _currentJINE = 18;
+                _currentVIPLEVEL = 1;
             }
             
         }
@@ -407,7 +527,8 @@
                 if (self.vipPriceModelARR.count > 1) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                //_currentJINE = 28;
+                _currentJINE = 28;
+                _currentVIPLEVEL = 2;
             }
             break;
         case 3:
@@ -418,7 +539,8 @@
                 if (self.vipPriceModelARR.count > 2) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                // _currentJINE = 38;
+                _currentJINE = 38;
+                _currentVIPLEVEL = 3;
             }
             break;
         case 4:
@@ -429,7 +551,8 @@
                 if (self.vipPriceModelARR.count > 3) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                //_currentJINE = 58;
+                _currentJINE = 58;
+                _currentVIPLEVEL = 4;
             }
             break;
         case 5:
@@ -440,7 +563,8 @@
                 if (self.vipPriceModelARR.count > 4) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                //_currentJINE = 98;
+                _currentJINE = 98;
+                _currentVIPLEVEL = 5;
             }
             break;
         case 6:
@@ -451,17 +575,20 @@
                 if (self.vipPriceModelARR.count > 5) {
                     self.currentPriceModel = self.vipPriceModelARR[0];
                 }
-                //_currentJINE = 198;
+                _currentJINE = 198;
+                _currentVIPLEVEL = 6;
             }
             break;
             
         default:
             break;
     }
-    
+    NSLog(@"self.UBMiaoShuARR.count=%ld，self.VIPMiaoShuARR.count=%ld,sender.tag-1=%d",self.UBMiaoShuARR.count,self.VIPMiaoShuARR.count,sender.tag-1);
     if (sender.tag-1 < self.VIPMiaoShuARR.count && sender.tag-1 < self.UBMiaoShuARR.count) {
         self.UBView.fuWuLabel.text = self.UBMiaoShuARR[sender.tag-1];
+        
         self.VIPView.fuWuXiaLabel.text = self.VIPMiaoShuARR[sender.tag-1];
+        NSLog(@"UB的描述：%@+++VIP 的描述：%@",self.UBView.fuWuLabel.text,self.VIPView.fuWuXiaLabel.text);
     }
     
 }
@@ -550,6 +677,7 @@
         self.UBView.hidden = NO;
         self.UB_or_VIP = UB_ChongZhi;
         _currentJINE = 0;
+        _currentVIPLEVEL = 0;
         self.currentPriceModel = nil;
     }
     else{
@@ -557,6 +685,7 @@
         self.UBView.hidden = YES;
         self.VIPView.hidden = NO;
         _currentJINE = 0;
+        _currentVIPLEVEL = 0;
         self.currentPriceModel = nil;
     }
     
@@ -899,26 +1028,26 @@
 // 过滤HTML的标签
 - (NSString *)removeHTML:(NSString *)html {
     
-//    NSScanner *theScanner = [NSScanner scannerWithString:html];
-//    
-//    NSString *text = nil;
-//    
-//    while ([theScanner isAtEnd] == NO) {
-//        
-//        // 找到标签的起始位置
-//        
-//        [theScanner scanUpToString:@"<" intoString:nil] ;
-//        
-//        // 找到标签的结束位置
-//        
-//        [theScanner scanUpToString:@">" intoString:&text] ;
-//        
-//        // 替换字符
-//        
-//        //(you can filter multi-spaces out later if you wish)
-//        
-//        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@" "];
-//    }
+    //    NSScanner *theScanner = [NSScanner scannerWithString:html];
+    //
+    //    NSString *text = nil;
+    //
+    //    while ([theScanner isAtEnd] == NO) {
+    //
+    //        // 找到标签的起始位置
+    //
+    //        [theScanner scanUpToString:@"<" intoString:nil] ;
+    //
+    //        // 找到标签的结束位置
+    //
+    //        [theScanner scanUpToString:@">" intoString:&text] ;
+    //
+    //        // 替换字符
+    //
+    //        //(you can filter multi-spaces out later if you wish)
+    //
+    //        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@" "];
+    //    }
     /*
      iOS中对字符串进行UTF-8编码：输出str字符串的UTF-8格式
      [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -941,7 +1070,7 @@
 
 #pragma mark BMOB 支付接口 START
 - (void)zhifuTiJiaoButtonAction:(UIButton *)sender{
-
+    
     [BmobPay payWithPayType:BmobAlipay price:@0.1 orderName:@"会员卡" describe:@"黄金会员" result:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             NSLog(@"bmob支付成功");
@@ -954,34 +1083,34 @@
         NSLog(@"支付订单信息：%@",orderInfo[@"orderNumber"]);
         //_orderNumber = orderInfo[@"orderNumber"];
     }];
-
+    
 }
 
 
 /*
-- (void)bmobPayButtonAction:(id)sender{
-    [BmobPay payWithPayType:BmobWechat
-                      price:[NSNumber numberWithFloat:[@"0.9" floatValue]]
-                  orderName:@"zhou"
-                   describe:@"优惠券"
-                     result:^(BOOL isSuccessful, NSError *error) {
-                         if (isSuccessful) {
-                             NSLog(@"支付成功");
-                             //_result.text = @"支付成功";
-                         } else {
-                             NSLog(@"支付失败");
-                             //_result.text = error.description;
-                         }
-                     }];
-    
-    [BmobPay orderInfoCallback:^(NSDictionary *orderInfo) {
-        NSLog(@"支付订单信息：%@",orderInfo[@"orderNumber"]);
-        //_orderNumber = orderInfo[@"orderNumber"];
-    }];
-
-
-}
-*/
+ - (void)bmobPayButtonAction:(id)sender{
+ [BmobPay payWithPayType:BmobWechat
+ price:[NSNumber numberWithFloat:[@"0.9" floatValue]]
+ orderName:@"zhou"
+ describe:@"优惠券"
+ result:^(BOOL isSuccessful, NSError *error) {
+ if (isSuccessful) {
+ NSLog(@"支付成功");
+ //_result.text = @"支付成功";
+ } else {
+ NSLog(@"支付失败");
+ //_result.text = error.description;
+ }
+ }];
+ 
+ [BmobPay orderInfoCallback:^(NSDictionary *orderInfo) {
+ NSLog(@"支付订单信息：%@",orderInfo[@"orderNumber"]);
+ //_orderNumber = orderInfo[@"orderNumber"];
+ }];
+ 
+ 
+ }
+ */
 -(void)paySuccess{
     NSLog(@"支付成功！");
     UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付结果" message:@"支付成功" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];

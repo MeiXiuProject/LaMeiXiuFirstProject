@@ -20,6 +20,8 @@
 #import "ChongZhiVIewModel.h"
 #import "ChongZhPayActioniModel.h"
 
+
+
 typedef NS_ENUM(NSUInteger,UBorVIP) {
     UB_ChongZhi = 0,
     VIP_ChongZhi
@@ -47,6 +49,8 @@ typedef NS_ENUM(NSUInteger,UBorVIP) {
 
 @property (strong, nonatomic) NSMutableArray * UBMiaoShuARR;
 @property (strong, nonatomic) NSMutableArray * VIPMiaoShuARR;
+
+@property (strong, nonatomic) MoMoMemberClass * currentMoMoMemberInfo;
 
 
 @end

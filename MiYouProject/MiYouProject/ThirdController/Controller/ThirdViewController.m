@@ -419,7 +419,7 @@ static int _is_first;
 //        [self.navigationController pushViewController:vc animated:NO];
 //
 //    }else{
-        int UBpoitnts = [[[NSUserDefaults standardUserDefaults] objectForKey:MOMO_MEMBER_POINTS_NUM ] intValue];
+        int UBpoitnts = [self.currentMoMoModel.points intValue];
         if (UBpoitnts < [sender.sifangModel.price intValue]) {
             __weak typeof(self) weakSelf = self;
             AlertViewCustomZL * alertZL = [[AlertViewCustomZL alloc]init];
@@ -442,7 +442,9 @@ static int _is_first;
             
             int shengNum = UBpoitnts - [sender.sifangModel.price intValue];
             NSNumber * shengNS = [NSNumber numberWithInt:shengNum];
-            [[NSUserDefaults standardUserDefaults] setObject:shengNS forKey:MOMO_MEMBER_POINTS_NUM];
+            [self.currentMoMoModel setObject:shengNS forKey:@"points"];
+            [self.currentMoMoModel saveInBackground];
+
             SiFangPlayController * vc = [[SiFangPlayController alloc]init];
             vc.mid = self.currentMemberMTLModel.id;
             vc.id = [NSString stringWithFormat:@"%d",sender.videoID];
@@ -656,6 +658,8 @@ static int _is_first;
     [super viewWillAppear:animated];
     //[self.navigationController setNavigationBarHidden:YES];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    self.currentMoMoModel = [MoMoMemberClass currentUser];
 
 }
 

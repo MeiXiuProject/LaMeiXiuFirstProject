@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -90,7 +90,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEt-az-kPM">
                     <rect key="frame" x="0.0" y="119.5" width="375" height="115"/>
                     <subviews>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAl-6m-uAa" userLabel="1">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAl-6m-uAa" userLabel="1">
                             <rect key="frame" x="9.5" y="5" width="112.5" height="51"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="OAl-6m-uAa" secondAttribute="height" multiplier="11:5" id="mBg-sH-eBb"/>
@@ -277,17 +277,17 @@
                         <constraint firstAttribute="width" secondItem="fV6-x6-OSF" secondAttribute="height" multiplier="375:128" id="rUz-tg-i0z"/>
                     </constraints>
                 </view>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可获得：11000U币(额外奖励+1000U币+青铜会员)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8c-1q-k0E">
-                    <rect key="frame" x="16" y="606" width="343" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可获得：11000U币(额外奖励+1000U币+青铜会员)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8c-1q-k0E">
+                    <rect key="frame" x="16" y="596" width="343" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edT-Na-Hua">
-                    <rect key="frame" x="16" y="630" width="343" height="30"/>
+                    <rect key="frame" x="16" y="620" width="343" height="40"/>
                     <color key="backgroundColor" red="0.98039215686274506" green="0.76078431372549016" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="th4-da-u1g"/>
+                        <constraint firstAttribute="height" constant="40" id="th4-da-u1g"/>
                     </constraints>
                     <state key="normal" title="立即支付">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -407,7 +407,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nu-hM-6h6">
                     <rect key="frame" x="0.0" y="120" width="375" height="115"/>
                     <subviews>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhS-xk-VMy" userLabel="1">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhS-xk-VMy" userLabel="1">
                             <rect key="frame" x="11" y="5" width="110.5" height="50.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="QhS-xk-VMy" secondAttribute="height" multiplier="11:5" id="a8u-uw-MXj"/>
@@ -594,17 +594,17 @@
                         <constraint firstItem="XPk-0l-QPR" firstAttribute="top" secondItem="I2N-Zh-9br" secondAttribute="bottom" constant="12" id="wYF-9b-I9e"/>
                     </constraints>
                 </view>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可获得：白银会员（额外奖励+5000U币+土豆VIP）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-kI-ixt">
-                    <rect key="frame" x="16" y="606" width="343" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可获得：白银会员（额外奖励+5000U币+土豆VIP）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-kI-ixt">
+                    <rect key="frame" x="16" y="596" width="343" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ga-Fb-RJK">
-                    <rect key="frame" x="16" y="630" width="343" height="30"/>
+                    <rect key="frame" x="16" y="620" width="343" height="40"/>
                     <color key="backgroundColor" red="0.98039215690000003" green="0.76078431369999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="sqq-J7-7gZ"/>
+                        <constraint firstAttribute="height" constant="40" id="sqq-J7-7gZ"/>
                     </constraints>
                     <state key="normal" title="立即支付">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

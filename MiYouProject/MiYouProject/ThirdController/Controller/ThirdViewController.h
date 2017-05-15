@@ -32,4 +32,6 @@
 @property (strong, nonatomic) NSMutableArray * collectioinViewARR;
 @property (strong, nonatomic) MemberMTLModel * currentMemberMTLModel;
 
+@property (strong, nonatomic) MoMoMemberClass * currentMoMoModel;
+
 @end

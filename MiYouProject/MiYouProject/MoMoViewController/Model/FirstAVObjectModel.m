@@ -48,6 +48,7 @@
 @dynamic id;
 @dynamic points;
 @dynamic username;
+@dynamic password;
 + (NSString *)parseClassName{
     return @"_User";
 

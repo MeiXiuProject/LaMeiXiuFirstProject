@@ -40,7 +40,7 @@ static int _is_first;
     //self.navigationController.navigationItem.titleView = self.control;
     //[self.navigationController.navigationItem setTitleView:self.control];
     //self.navigationController.navigationBar.topItem.title=@"BS LZ";
-    self.navigationController.navigationBar.topItem.titleView = self.control;
+    
     self.control.selectedSegmentIndex = 0;
     
     UIBarButtonItem * rightBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"sifangshizianniu"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonAction:)];
@@ -658,9 +658,15 @@ static int _is_first;
     [super viewWillAppear:animated];
     //[self.navigationController setNavigationBarHidden:YES];
     [self.navigationController setNavigationBarHidden:NO];
-    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.topItem.titleView = self.control;
     self.currentMoMoModel = [MoMoMemberClass currentUser];
-
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar.topItem setTitleView:nil];
+    //self.navigationController.navigationBar.topItem.title=nil;
+    //[self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)onTap{

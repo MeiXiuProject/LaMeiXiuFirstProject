@@ -315,6 +315,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    //self.title = @"";
     //[self.navigationItem setTitle:@"首页"];
     //self.navigationController.navigationBar.topItem.title=@"BS LZ";
 }

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5XB-yn-uIi">
@@ -26,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-KD-09B">
-                        <rect key="frame" x="8" y="9" width="50" height="50"/>
+                        <rect key="frame" x="8" y="14" width="50" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="张小龙" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9p-95-RIx">
@@ -71,7 +70,7 @@
                     <constraint firstItem="gGW-KD-09B" firstAttribute="centerX" secondItem="5XB-yn-uIi" secondAttribute="centerX" id="JQW-Dr-OpY"/>
                     <constraint firstAttribute="trailing" secondItem="BMz-qk-HXT" secondAttribute="trailing" constant="8" id="KNS-SN-Ee3"/>
                     <constraint firstItem="5XB-yn-uIi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Odb-8k-PDB"/>
-                    <constraint firstItem="gGW-KD-09B" firstAttribute="height" secondItem="5XB-yn-uIi" secondAttribute="height" id="SVb-Om-FEj"/>
+                    <constraint firstItem="gGW-KD-09B" firstAttribute="height" secondItem="5XB-yn-uIi" secondAttribute="height" constant="-10" id="SVb-Om-FEj"/>
                     <constraint firstItem="zG1-WF-eD3" firstAttribute="leading" secondItem="R9p-95-RIx" secondAttribute="trailing" constant="25" id="X4w-TW-sw5"/>
                     <constraint firstItem="R9p-95-RIx" firstAttribute="leading" secondItem="5XB-yn-uIi" secondAttribute="trailing" constant="8" id="Zz7-Bg-p3I"/>
                     <constraint firstItem="NT6-6n-rVo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="bfh-Zb-u5F"/>

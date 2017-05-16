@@ -17,11 +17,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //self.automaticallyAdjustsScrollViewInsets = NO;//不适应 起始坐标
+    
+
+    //self.navigationController.navigationBar.topItem.title=@"消息";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"XinXiTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"XinXiTableViewCellID"];
-   
-    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController setNavigationBarHidden:NO];
+    //self.title = @"消息";
+    [self.navigationController.navigationBar.topItem setTitleView:nil];
+    self.navigationController.navigationBar.topItem.title=@"消息";
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    //[self.navigationController.navigationBar.topItem setTitleView:nil];
+    //self.navigationController.navigationBar.topItem.title=nil;
+    //[self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark TableviewDelegate代理方发 START
@@ -29,7 +45,6 @@
     return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     return 70.0f;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -71,6 +86,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setListXiaoXiBlocks:(ListXiaoXiBlock)block{
+    self.listXinXiBlock = block;
 }
 
 /*
